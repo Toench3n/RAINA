@@ -1,0 +1,98 @@
+# in this file example stories to train the model regarding all stories connected to a users pyramid(s) are provided
+version: "2.0"
+
+stories:
+  - story: show single pyramid 1
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: show_single_pyramid
+        entities:
+          - time: "heute"
+      - action: action_show_single_pyramid
+      - action: utter_offer_help
+      - intent: deny
+      - action: utter_goodbye
+
+  - story: show single pyramid 2
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: show_single_pyramid
+        entities:
+          - time: "vor einer Woche"
+      - action: action_show_single_pyramid
+      - action: utter_offer_help
+      - intent: affirm
+      - action: utter_ask_task
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Extras"
+      - action: action_add_portion
+      - action: utter_offer_help
+      - intent: deny
+      - action: utter_goodbye
+
+  - story: show average pyramid 1
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: show_average_pyramid
+      - action: action_show_average_pyramid
+      - action: utter_offer_help
+      - intent: deny
+      - action: utter_goodbye
+
+  - story: show average pyramid 2
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: show_average_pyramid
+        entities:
+          - time: "letzte 7 Tage"
+      - action: action_show_average_pyramid
+      - action: utter_offer_help
+      - intent: affirm
+      - action: utter_ask_task
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Getränke"
+      - action: action_add_portion
+      - action: utter_offer_help
+      - intent: deny
+      - action: utter_goodbye
+
+  - story: show both pyramids
+    steps:
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Obst"
+      - action: action_add_portion
+      - action: utter_offer_help
+      - intent: show_average_pyramid
+        entities:
+          - time: "letzte 3 Tage"
+      - action: action_show_average_pyramid
+      - action: utter_offer_help
+      - intent: affirm
+      - action: utter_ask_task
+      - intent: show_single_pyramid
+      - action: action_show_single_pyramid
+      - action: utter_offer_help
+      - intent: deny
+      - action: utter_goodbye
+
+  - story: show single pyramid without greeting
+    steps:
+      - intent: show_single_pyramid
+      - action: action_show_single_pyramid
+      - action: utter_offer_help
+      - intent: affirm
+      - action: utter_ask_task
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Extras"
+      - action: action_add_portion
+      - action: utter_offer_help
+      - intent: deny
+      - action: utter_motivate

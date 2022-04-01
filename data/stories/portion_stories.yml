@@ -1,0 +1,144 @@
+# in this file example stories to train the model regarding adding or removing portions are provided
+version: "2.0"
+
+stories:
+
+  - story: add portion 1
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Öl"
+      - action: action_add_portion
+      - action: utter_offer_help
+      - intent: deny
+      - action: utter_motivate
+
+  - story: add portion 2
+    steps:
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Milchprodukte"
+      - action: action_add_portion
+      - action: utter_offer_help
+      - intent: affirm
+      - action: utter_ask_task
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Extras"
+      - action: action_add_portion
+      - action: utter_offer_help
+      - intent: deny
+      - action: utter_goodbye
+
+  - story: remove portion 1
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: remove_portion
+        entities:
+          - pyramid_field: "Tee"
+      - action: action_remove_portion
+      - action: utter_offer_help
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: remove portion 2
+    steps:
+      - intent: remove_portion
+        entities:
+          - pyramid_field: "Kohlenhydrate"
+      - action: action_remove_portion
+      - action: utter_offer_help
+      - intent: affirm
+      - action: utter_ask_task
+      - intent: remove_portion
+        entities:
+          - pyramid_field: "Extras"
+      - action: action_remove_portion
+      - action: utter_offer_help
+      - intent: deny
+      - action: utter_goodbye
+
+  - story: get portions of chocolate for today
+    steps:
+      - intent: get_portions
+        entities:
+          - pyramid_field: "Schoki"
+          - time: "heute"
+      - action: action_get_number_of_portions
+      - action: utter_did_that_help
+      - intent: affirm
+      - action: utter_motivate
+
+  - story: get portions of fruits for yesterday
+    steps:
+      - intent: get_portions
+        entities:
+          - pyramid_field: "Obstsalat"
+          - time: "gestern"
+      - action: action_get_number_of_portions
+      - action: utter_did_that_help
+      - intent: deny
+      - action: utter_offer_help
+      - intent: show_single_pyramid
+        entities:
+          - time: "gestern"
+      - action: action_show_single_pyramid
+      - action: utter_offer_help
+      - intent: deny
+      - action: utter_goodbye
+
+  - story: get portions of extras and add extras
+    steps:
+      - intent: get_portions
+        entities:
+          - pyramid_field: "Extras"
+      - action: action_get_number_of_portions
+      - action: utter_did_that_help
+      - intent: deny
+      - action: utter_offer_help
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Extras"
+      - action: action_add_portion
+      - action: utter_offer_help
+      - intent: deny
+      - action: utter_motivate
+
+  - story: get portions of extras, add fruits and get pyramid for today
+    steps:
+      - intent: get_portions
+        entities:
+          - pyramid_field: "Extras"
+      - action: action_get_number_of_portions
+      - action: utter_did_that_help
+      - intent: deny
+      - action: utter_offer_help
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Obst"
+      - action: action_add_portion
+      - action: utter_offer_help
+      - intent: affirm
+      - action: utter_ask_task
+      - intent: show_single_pyramid
+      - action: action_show_single_pyramid
+      - action: utter_offer_help
+      - intent: deny
+      - action: utter_goodbye
+
+  - story: user fails to add portion several times
+    steps:
+      - intent: nlu_fallback
+      - action: utter_rephrase
+      - intent: nlu_fallback
+      - action: utter_rephrase
+      - intent: nlu_fallback
+      - action: utter_rephrase
+      - intent: add_portion
+      - action: action_add_portion
+      - action: utter_offer_help
+      - intent: deny
+      - action: utter_motivate

@@ -1,0 +1,38 @@
+# https://rasa.com/docs/rasa/docker/deploying-in-docker-compose/
+version: '3.4'
+services:
+  # core rasa NLU service
+  rasa:
+    image: rasa/rasa:2.8.13-full
+    ports:
+      - "5005:5005"
+    volumes:
+      - ./:/app
+    command:
+      - run
+
+  # duckling service for entity extraction of types date and number
+  duckling:
+    restart: always
+    image: "rasa/duckling:0.1.6.5-r2"
+    expose:
+      - "8000"
+    command: ["duckling-example-exe", "--no-access-log", "--no-error-log"]
+
+  # custom action server
+  app:
+    restart: always
+    # image: "toench3n/raina:action-server-e10l" # used for remote "experimental" server image (Dockerhub)
+    image: "action-server-local" # used for locally generated image
+    volumes:
+      - './actions/db:/app/actions/db'
+    environment:
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_BUCKET_NAME: ${AWS_BUCKET_NAME}
+      AWS_BUCKET_URL: ${AWS_BUCKET_URL}
+      TELEGRAM_WEBHOOK_URL: ${TELEGRAM_WEBHOOK_URL}
+    expose:
+      - "5055"
+    depends_on:
+      - rasa

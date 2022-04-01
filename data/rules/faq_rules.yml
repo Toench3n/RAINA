@@ -1,0 +1,11 @@
+# in this file the rule for handling all questions implemented is being handled. For all questions only one rule is
+# needed: https://rasa.com/docs/rasa/2.x/chitchat-faqs
+
+version: "2.0"
+
+rules:
+
+  - rule: respond to FAQ
+    steps:
+      - intent: faq
+      - action: utter_faq

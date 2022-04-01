@@ -1,0 +1,104 @@
+# in this file possible cases are specified in which RAINA might not understand the user but the dialogue should be
+# continued. Working assumption: the user gets it right the second time
+version: "2.0"
+
+stories:
+
+  - story: user does not understand the pyramid and RAINA does not identifiy the intent for showing the pyramid
+    steps:
+      - intent: start
+      - action: utter_tell_activated
+      - action: utter_ask_readyness
+      - intent: ready
+      - action: utter_ask_pyramid_knowledge
+      - intent: deny
+      - action: utter_explain_pyramid_knowledge
+      - action: utter_ask_colors_knowledge
+      - intent: affirm
+      - action: utter_praise_colors_knowledge
+      - action: utter_ask_icons_knowledge
+      - intent: affirm
+      - action: utter_praise_icons_knowledge
+      - action: utter_ask_portion_size_knowledge
+      - intent: affirm
+      - action: utter_praise_portion_size_knowledge
+      - action: utter_ask_portion_exercise
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Füge eine Portion Extras hinzu"
+      - action: action_add_portion
+      - action: utter_praise_portion_exercise
+      - action: utter_ask_pyramid_exercise
+      - intent: nlu_fallback
+      - action: utter_rephrase
+      - intent: show_single_pyramid
+      - action: action_show_single_pyramid
+      - action: utter_praise_pyramid_exercise
+      - action: utter_tell_ready_to_go
+      - action: action_add_user
+
+  - story: user does not understand the colors, provides wrong time and does not request the pyramid right
+    steps:
+      - intent: start
+      - action: utter_tell_activated
+      - action: utter_ask_readyness
+      - intent: ready
+      - action: utter_ask_pyramid_knowledge
+      - intent: affirm
+      - action: utter_praise_pyramid_knowledge
+      - action: utter_ask_colors_knowledge
+      - intent: deny
+      - action: utter_explain_colors_knowledge
+      - action: utter_ask_icons_knowledge
+      - intent: affirm
+      - action: utter_praise_icons_knowledge
+      - action: utter_ask_portion_size_knowledge
+      - intent: affirm
+      - action: utter_praise_portion_size_knowledge
+      - action: utter_ask_portion_exercise
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Ich habe 3 Portionen Käse gegessen"
+      - action: action_add_portion
+      - action: utter_praise_portion_exercise
+      - action: utter_ask_pyramid_exercise
+      - intent: nlu_fallback
+      - action: utter_rephrase
+      - intent: show_single_pyramid
+      - action: action_show_single_pyramid
+      - action: utter_praise_pyramid_exercise
+      - action: utter_tell_ready_to_go
+      - action: action_add_user
+
+  - story: user does not understand the icons and adds portion wrong
+    steps:
+      - intent: start
+      - action: utter_tell_activated
+      - action: utter_ask_readyness
+      - intent: ready
+      - action: utter_ask_pyramid_knowledge
+      - intent: affirm
+      - action: utter_praise_pyramid_knowledge
+      - action: utter_ask_colors_knowledge
+      - intent: affirm
+      - action: utter_praise_colors_knowledge
+      - action: utter_ask_icons_knowledge
+      - intent: deny
+      - action: utter_explain_icons_knowledge
+      - action: utter_ask_portion_size_knowledge
+      - intent: affirm
+      - action: utter_praise_portion_size_knowledge
+      - action: utter_ask_portion_exercise
+      - intent: nlu_fallback
+      - action: utter_rephrase
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Füge eine Portion Fett hinzu"
+      - action: action_add_portion
+      - action: utter_praise_portion_exercise
+      - action: utter_ask_pyramid_exercise
+      - intent: show_single_pyramid
+      - action: action_show_single_pyramid
+      - action: utter_praise_pyramid_exercise
+      - action: utter_tell_ready_to_go
+      - action: action_add_user

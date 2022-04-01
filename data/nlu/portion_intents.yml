@@ -1,0 +1,1092 @@
+# in this file the intents for adding a portion/field to the nutrition pyramid are specified
+# note that for every Synonym at least one training example needs to be added
+version: "2.0"
+
+nlu:
+
+  - intent: add_portion
+    examples: |
+      - + [Öl](pyramid_field)
+      - ich habe ein Glas [Wasser](pyramid_field) getrunken
+      - füge eine Portion [Wasser](pyramid_field) hinzu
+      - füge ein Glas [Wasser](pyramid_field) hinzu
+      - füge 7 portionen [Gemüse](pyramid_field) hinzu
+      - füge drei Portionen [tee](pyramid_field) hinzu
+      - füge drei Portionen [fett](pyramid_field) hinzu
+      - ein [Wasser](pyramid_field) mehr
+      - ich habe 4 Gläser [Wasser](pyramid_field) getrunken
+      - trage 4 Gläser [Wasser](pyramid_field) in meine Pyramide für heute ein
+      - trage 3 Hände [Obst](pyramid_field) ein
+      - füge noch 2,5 Gläser [Wasser](pyramid_field) hinzu
+      - ich habe 3 Portionen [Gemüse](pyramid_field) gegessen
+      - ich habe zwei [Eis](pyramid_field) gegessen
+      - ich habe gerade drei Portionen [Nudeln](pyramid_field) gegessen
+      - markiere ein Feld [kaffee](pyramid_field)
+      - male ein Feld [grüner Salat](pyramid_field) farbig an
+      - füge ein Feld [Öl](pyramid_field) hinzu
+      - zwei Felder [Süßigkeiten](pyramid_field) mehr
+      - füge eine Portion [Wasser](pyramid_field) hinzu
+      - füge eine Portion [Gemüse](pyramid_field) hinzu
+      - füge eine Hand [Obst](pyramid_field) hinzu
+      - füge eine Portion [Kohlenhydrate](pyramid_field) hinzu
+      - füge eine Hand [Milchprodukte](pyramid_field) hinzu
+      - füge eine Portion [Fleisch](pyramid_field) hinzu
+      - füge eine Portion [Fett](pyramid_field) hinzu
+      - füge eine Portion [Öl](pyramid_field) hinzu
+      - füge eine Hand [Extras](pyramid_field) hinzu
+      - füge eine Portion [getränke](pyramid_field) hinzu
+      - füge eine Portion [wasser](pyramid_field) hinzu
+      - füge eine Portion [tee](pyramid_field) hinzu
+      - füge eine Portion [kaffee](pyramid_field) hinzu
+      - füge eine Portion [sprudelwasser](pyramid_field) hinzu
+      - ich habe 2,5 Tassen [Früchtetee](pyramid_field) getrunken
+      - ich habe eine Tasse [Kräutertee](pyramid_field) getrunken
+      - ich habe 1,5 Tassen [Minztee](pyramid_field) getrunken
+      - ich habe eine Tasse [Pfefferminztee](pyramid_field) getrunken
+      - ich habe eine Tasse [Fencheltee](pyramid_field) getrunken
+      - ich habe 2 Gläser [Mineralwasser](pyramid_field) getrunken
+      - ich habe eine Tasse [schwarzer Kaffee](pyramid_field) getrunken
+      - ich habe einen [Espresso](pyramid_field) getrunken
+      - ich habe eine Tasse [schwarzer Tee](pyramid_field) getrunken
+      - ich habe einen [grüner Tee](pyramid_field) getrunken
+      - ich habe eine Tasse [Brennesseltee](pyramid_field) getrunken
+      - füge eine Portion [Obst](pyramid_field) hinzu
+      - füge eine Portion [Früchte](pyramid_field) hinzu
+      - füge eine Portion [Beeren](pyramid_field) hinzu
+      - füge eine Portion [Obstsalat](pyramid_field) hinzu
+      - füge ein Feld [Apfel](pyramid_field) hinzu
+      - füge ein Feld [Banane](pyramid_field) hinzu
+      - füge ein Feld [Trauben](pyramid_field) hinzu
+      - füge ein Feld [Pfirsich](pyramid_field) hinzu
+      - füge ein Feld [Erdbeeren](pyramid_field) hinzu
+      - füge ein Feld [Birne](pyramid_field) hinzu
+      - füge ein Feld [Kirsche](pyramid_field) hinzu
+      - füge ein Feld [Nektarine](pyramid_field) hinzu
+      - füge ein Feld [Himbeeren](pyramid_field) hinzu
+      - füge ein Feld [Pflaume](pyramid_field) hinzu
+      - füge ein Feld [Orange](pyramid_field) hinzu
+      - füge ein Feld [Mandarine](pyramid_field) hinzu
+      - füge eine Portion [gemüse](pyramid_field) hinzu
+      - füge eine Hand [grünzeug](pyramid_field) hinzu
+      - füge eine Portion [veggies](pyramid_field) hinzu
+      - füge eine Portion [rohkost](pyramid_field) hinzu
+      - füge eine Hand [salat](pyramid_field) hinzu
+      - füge eine Portion [grüner Salat](pyramid_field) hinzu
+      - ich habe gerade drei Portionen [Tomate](pyramid_field) gegessen
+      - ich habe gerade vier Portionen [Gurke](pyramid_field) gegessen
+      - ich habe gerade eine Portion [Rübe](pyramid_field) gegessen
+      - ich habe gerade drei Portionen [Karotte](pyramid_field) gegessen
+      - ich habe gerade drei Portionen [Zucchini](pyramid_field) gegessen
+      - ich habe gerade 2 Portionen [Aubergine](pyramid_field) gegessen
+      - ich habe gerade drei Portionen [Radieschen](pyramid_field) gegessen
+      - ich habe gerade 4 Portionen [Zwiebel](pyramid_field) gegessen
+      - ich habe gerade drei Portionen [Pilze](pyramid_field) gegessen
+      - ich habe gerade zwei Portionen [Paprika](pyramid_field) gegessen
+      - ich habe gerade 7 Portionen [Sellerie](pyramid_field) gegessen
+      - ich habe gerade drei Hände [Eisbergsalat](pyramid_field) gegessen
+      - ich habe gerade drei Portionen [Blumenkohl](pyramid_field) gegessen
+      - ich habe gerade eine Hand voll [Brokkoli](pyramid_field) gegessen
+      - ich habe gerade drei Portionen [Kohl](pyramid_field) gegessen
+      - ich habe gerade 2,5 Portionen [Sauerkraut](pyramid_field) gegessen
+      - füge eine Portion [kohlenhydrate](pyramid_field) hinzu
+      - füge eine Portion [beilagen](pyramid_field) hinzu
+      - füge eine Portion [Kartoffeln](pyramid_field) hinzu
+      - füge eine Portion [Nudeln](pyramid_field) hinzu
+      - füge zwei Hände voll [Reis](pyramid_field) hinzu
+      - füge eine Portion [Quinoa](pyramid_field) hinzu
+      - füge eine Portion [Brot](pyramid_field) hinzu
+      - füge eine Portion [Vollkornbrot](pyramid_field) hinzu
+      - füge eine Portion [Vollkornreis](pyramid_field) hinzu
+      - füge eine Portion [Couscous](pyramid_field) hinzu
+      - markiere ein Feld [Kartoffelbrei](pyramid_field) als gegessen
+      - markiere ein Feld [Kartoffelpüree](pyramid_field) als gegessen
+      - markiere ein Feld [Kartoffelstampf](pyramid_field) als gegessen
+      - markiere ein Feld [Wrap](pyramid_field) als gegessen
+      - markiere ein Feld [Tortilla](pyramid_field) als gegessen
+      - markiere ein Feld [Vollkornnudeln](pyramid_field) als gegessen
+      - markiere ein Feld [Süßkartoffel](pyramid_field) als gegessen
+      - markiere ein Feld [Haferflocken](pyramid_field) als gegessen
+      - markiere ein Feld [Polenta](pyramid_field) als gegessen
+      - füge eine Portion [Milchprodukte](pyramid_field) hinzu
+      - füge eine Portion [Milch](pyramid_field) hinzu
+      - füge eine Portion [Joghurt](pyramid_field) hinzu
+      - füge eine Portion [Käse](pyramid_field) hinzu
+      - füge eine Portion [Fruchtzwerg](pyramid_field) hinzu
+      - füge eine Portion [Fruchtjoghurt](pyramid_field) hinzu
+      - füge eine Portion [Frischkäse](pyramid_field) hinzu
+      - male ein Feld [Quark](pyramid_field) farbig an
+      - male ein Feld [Magerquark](pyramid_field) farbig an
+      - male ein Feld [Scheibenkäse](pyramid_field) farbig an
+      - male ein Feld [Reibekäse](pyramid_field) farbig an
+      - male ein Feld [Parmesan](pyramid_field) farbig an
+      - male ein Feld [Pizzakäse](pyramid_field) farbig an
+      - male ein Feld [Skyr](pyramid_field) farbig an
+      - male ein Feld [Sahne](pyramid_field) farbig an
+      - füge eine Portion [Fleisch](pyramid_field) hinzu
+      - füge eine Portion [Wurst](pyramid_field) hinzu
+      - füge eine Portion [Fisch](pyramid_field) hinzu
+      - füge eine Portion [Ei](pyramid_field) hinzu
+      - füge eine Portion [Hülsenfrüchte](pyramid_field) hinzu
+      - füge eine Portion [Steak](pyramid_field) hinzu
+      - füge eine Portion [Hühnchen](pyramid_field) hinzu
+      - füge eine Portion [Hackfleisch](pyramid_field) hinzu
+      - markiere ein Feld [Wurstaufschnitt](pyramid_field) als gegessen
+      - markiere ein Feld [Leberwurst](pyramid_field) als gegessen
+      - markiere ein Feld [Mettwurst](pyramid_field) als gegessen
+      - markiere ein Feld [Teewurst](pyramid_field) als gegessen
+      - markiere ein Feld [Mortadella](pyramid_field) als gegessen
+      - markiere ein Feld [Schinken](pyramid_field) als gegessen
+      - markiere ein Feld [Putenbrust](pyramid_field) als gegessen
+      - markiere ein Feld [Lachs](pyramid_field) als gegessen
+      - markiere ein Feld [Makrele](pyramid_field) als gegessen
+      - markiere ein Feld [Hering](pyramid_field) als gegessen
+      - markiere ein Feld [Thunfisch](pyramid_field) als gegessen
+      - markiere ein Feld [Eier](pyramid_field) als gegessen
+      - markiere ein Feld [Kichererbsen](pyramid_field) als gegessen
+      - markiere ein Feld [Linsen](pyramid_field) als gegessen
+      - markiere ein Feld [Belugalinsen](pyramid_field) als gegessen
+      - markiere ein Feld [rote Linsen](pyramid_field) als gegessen
+      - markiere ein Feld [vegane Wurst](pyramid_field) als gegessen
+      - markiere ein Feld [Burgerpatties](pyramid_field) als gegessen
+      - markiere ein Feld [vegane Burgerpatties](pyramid_field) als gegessen
+      - markiere ein Feld [Lammfilet](pyramid_field) als gegessen
+      - markiere ein Feld [Schweinenacken](pyramid_field) als gegessen
+      - markiere ein Feld [Rinderfilet](pyramid_field) als gegessen
+      - markiere ein Feld [Rumpsteak](pyramid_field) als gegessen
+      - füge eine Portion [Fett](pyramid_field) hinzu
+      - füge eine Portion [Butter](pyramid_field) hinzu
+      - füge eine Portion [Magarine](pyramid_field) hinzu
+      - füge eine Portion [Kokosöl](pyramid_field) hinzu
+      - füge eine Portion [Schmalz](pyramid_field) hinzu
+      - bitte eine weitere Portion [Griebenschmalz](pyramid_field) mehr eintragen
+      - bitte eine weitere Portion [Erdnussbutter](pyramid_field) mehr eintragen
+      - bitte eine weitere Portion [Mandelbutter](pyramid_field) mehr eintragen
+      - bitte eine weitere Portion [Cashewbutter](pyramid_field) mehr eintragen
+      - füge eine Portion [Öl](pyramid_field) hinzu
+      - füge eine Portion [Olivenöl](pyramid_field) hinzu
+      - füge eine Portion [Sonnenblumenöl](pyramid_field) hinzu
+      - füge eine Portion [Rapsöl](pyramid_field) hinzu
+      - füge eine Portion [Leinöl](pyramid_field) hinzu
+      - ich haben in meinem Essen [Walnussöl](pyramid_field) benutzt
+      - ich haben in meinem Essen [Sesamöl](pyramid_field) benutzt
+      - ich haben in meinem Essen [Erdnussöl](pyramid_field) benutzt
+      - ich haben in meinem Essen [Avocadoöl](pyramid_field) benutzt
+      - ich haben in meinem Essen [Maiskeimöl](pyramid_field) benutzt
+      - ich haben in meinem Essen [Mazola Öl](pyramid_field) benutzt
+      - ich haben in meinem Essen [Bratspray](pyramid_field) benutzt
+      - füge eine Portion [Extras](pyramid_field) hinzu
+      - füge eine Portion [Schokolade](pyramid_field) hinzu
+      - füge eine Portion [Gummibärchen](pyramid_field) hinzu
+      - füge eine Portion [Eis](pyramid_field) hinzu
+      - füge eine Portion [Chips](pyramid_field) hinzu
+      - füge eine Portion [Süßigkeiten](pyramid_field) hinzu
+      - füge eine [Cola](pyramid_field) hinzu
+      - füge eine [Fanta](pyramid_field) hinzu
+      - füge eine [Sprite](pyramid_field) hinzu
+      - füge eine [Limo](pyramid_field) hinzu
+      - füge eine [Limonade](pyramid_field) hinzu
+      - füge ein Stück [Kuchen](pyramid_field) hinzu
+      - füge ein Stück [Torte](pyramid_field) hinzu
+      - füge [Kekse](pyramid_field) hinzu
+      - füge eine Tüte [Pommes](pyramid_field) hinzu
+      - füge eine Portion [Pommes Frittes](pyramid_field) hinzu
+      - füge 2,5 Gläser [Wein](pyramid_field) hinzu
+      - füge ein [Bier](pyramid_field) hinzu
+      - füge einen [Schnaps](pyramid_field) hinzu
+      - füge einen [Rotwein](pyramid_field) hinzu
+      - füge 1,5 Gläser [Weißwein](pyramid_field) hinzu
+      - füge einen [Whisky](pyramid_field) hinzu
+      - füge einen [Whiskey](pyramid_field) hinzu
+      - füge ein [RedBull](pyramid_field) hinzu
+      - füge einen [Vodka](pyramid_field) hinzu
+      - füge ein [Gustl](pyramid_field) hinzu
+      - füge ein [Augustiner](pyramid_field) hinzu
+      - füge eine Hand voll [Erdnüsse](pyramid_field) hinzu
+      - füge 2 Hände voll [NicNacs](pyramid_field) hinzu
+      - füge zwei Handflächen voll [Studentenfutter](pyramid_field) hinzu
+      - füge [Schoki](pyramid_field) hinzu
+      - füge einen [Schokoriegel](pyramid_field) hinzu
+      - füge ein [Snickers](pyramid_field) hinzu
+      - Füge 1,5 Portionen [Plätzchen](pyramid_field) hinzu
+      - Füge 1,5 Portionen [Kekse](pyramid_field) hinzu
+      - Füge 1,5 Portionen [Glühwein](pyramid_field) hinzu
+      - Füge 1,5 Portionen [Kinderpunsch](pyramid_field) hinzu
+      - Füge 1,5 Portionen [Lebkuchen](pyramid_field) hinzu
+      - Fülle das Feld [Extras](pyramid_field) aus
+      - füge eine Portion [Kaffe](pyramid_field) hinzu.
+      - füge eine Portion [Kafee](pyramid_field) hinzu.
+      - füge eine Portion [Kafe](pyramid_field) hinzu.
+      - füge eine Portion [Expresso](pyramid_field) hinzu.
+      - füge eine Portion [Clementine](pyramid_field) hinzu.
+      - füge eine Portion [Mango](pyramid_field) hinzu.
+      - füge eine Portion [Mangos](pyramid_field) hinzu.
+      - füge eine Portion [Papaya](pyramid_field) hinzu.
+      - füge eine Portion [Grapefruit](pyramid_field) hinzu.
+      - füge eine Portion [Pomelo](pyramid_field) hinzu.
+      - füge eine Portion [Passionsfrucht](pyramid_field) hinzu.
+      - füge eine Portion [Maracuja](pyramid_field) hinzu.
+      - füge eine Portion [Rüben](pyramid_field) hinzu.
+      - füge eine Portion [schwarze Linsen](pyramid_field) hinzu.
+      - füge eine Portion [Kirschtomate](pyramid_field) hinzu.
+      - füge eine Portion [Kirschtomaten](pyramid_field) hinzu.
+      - füge eine Portion [Chili](pyramid_field) hinzu.
+      - füge eine Portion [Peperoni](pyramid_field) hinzu.
+      - füge eine Portion [Rotkohl](pyramid_field) hinzu.
+      - füge eine Portion [Blaukraut](pyramid_field) hinzu.
+      - füge eine Portion [Eisbergsalat](pyramid_field) hinzu.
+      - füge eine Portion [Romasalat](pyramid_field) hinzu.
+      - füge eine Portion [Roma Salat](pyramid_field) hinzu.
+      - füge eine Portion [Salatherz](pyramid_field) hinzu.
+      - füge eine Portion [Salatherzen](pyramid_field) hinzu.
+      - füge eine Portion [Austernpilz](pyramid_field) hinzu.
+      - füge eine Portion [Austernpilze](pyramid_field) hinzu.
+      - füge eine Portion [Champignon](pyramid_field) hinzu.
+      - füge eine Portion [Champignons](pyramid_field) hinzu.
+      - füge eine Portion [Kräuterseitling](pyramid_field) hinzu.
+      - füge eine Portion [Kräuterseitlinge](pyramid_field) hinzu.
+      - füge eine Portion [Prizessbohnen](pyramid_field) hinzu.
+      - füge eine Portion [grüne Bohnen](pyramid_field) hinzu. 
+      - füge eine Portion [Brechbohnen](pyramid_field) hinzu.
+      - füge eine Portion [Müsli](pyramid_field) hinzu.
+      - füge eine Portion [Cornflakes](pyramid_field) hinzu.
+      - füge eine Portion [Rice Crispies](pyramid_field) hinzu. 
+      - füge eine Portion [Puffreis](pyramid_field) hinzu.
+      - füge eine Portion [Basismüsli](pyramid_field) hinzu.
+      - füge eine Portion [Frühstücksflocken](pyramid_field) hinzu.
+      - füge eine Portion [Kölln Flocken](pyramid_field) hinzu.
+      - füge eine Portion [Dinkelflocken](pyramid_field) hinzu.
+      - füge eine Portion [Früchtemüsli](pyramid_field) hinzu.
+      - füge eine Portion [Knuspermüsli](pyramid_field) hinzu.
+      - füge eine Portion [Bergsteigermüsli](pyramid_field) hinzu.
+      - füge eine Portion [Amarant](pyramid_field) hinzu.
+      - füge eine Portion [Bulgur](pyramid_field) hinzu.
+      - füge eine Portion [Tortilla](pyramid_field) hinzu.
+      - füge eine Portion [Knäckebrot](pyramid_field) hinzu.
+      - füge eine Portion [Cracker](pyramid_field) hinzu.
+      - füge eine Portion [Seitenbacher Bergsteigermüsli](pyramid_field) hinzu.
+      - füge eine Portion [MyMuesli](pyramid_field) hinzu.
+      - füge eine Portion [Toast](pyramid_field) hinzu.
+      - füge eine Portion [Toastbrot](pyramid_field) hinzu.
+      - füge eine Portion [Semmel](pyramid_field) hinzu.
+      - füge eine Portion [Semmeln](pyramid_field) hinzu.
+      - füge eine Portion [Brötchen](pyramid_field) hinzu.
+      - füge eine Portion [Kornspitz](pyramid_field) hinzu.
+      - füge eine Portion [Breze](pyramid_field) hinzu.
+      - füge eine Portion [Bauernbrot](pyramid_field) hinzu.
+      - füge eine Portion [Roggenbrot](pyramid_field) hinzu.
+      - füge eine Portion [Kochsahne](pyramid_field) hinzu.
+      - füge eine Portion [Topfen](pyramid_field) hinzu.
+      - füge eine Portion [Maskarpone](pyramid_field) hinzu.
+      - füge eine Portion [griechischer Joghurt](pyramid_field) hinzu.
+      - füge eine Portion [Jogurt](pyramid_field) hinzu.
+      - füge eine Portion [Jogurth](pyramid_field) hinzu.
+      - füge eine Portion [Kaffesahne](pyramid_field) hinzu.
+      - füge eine Portion [Kaffeesahne](pyramid_field) hinzu.
+      - füge eine Portion [Bergkäse](pyramid_field) hinzu.
+      - füge eine Portion [Brie](pyramid_field) hinzu.
+      - eine Portion [Camenbert](pyramid_field) mehr!
+      - eine Portion [Gouda](pyramid_field) mehr!
+      - eine Portion [Cheddar](pyramid_field) mehr!
+      - eine Portion [Kefir](pyramid_field) mehr!
+      - eine Portion [Buttermilch](pyramid_field) mehr!
+      - eine Portion [Quäse](pyramid_field) mehr!
+      - eine Portion [Harzer Roller](pyramid_field) mehr!
+      - eine Portion [Racelette](pyramid_field) mehr!
+      - eine Portion [Raclette](pyramid_field) mehr!
+      - eine Portion [Raclett](pyramid_field) mehr!
+      - eine Portion [Käsefondue](pyramid_field) mehr!
+      - eine Portion [Hähnchen](pyramid_field) mehr!
+      - eine Portion [Forelle](pyramid_field) mehr!
+      - eine Portion [Geschnetzeltes](pyramid_field) mehr!
+      - eine Portion [Tartar](pyramid_field) mehr!
+      - eine Portion [Carpaccio](pyramid_field) mehr!
+      - eine Portion [T-Bone Steak](pyramid_field) mehr!
+      - eine Portion [Burger](pyramid_field) mehr!
+      - eine Portion [Salami](pyramid_field) mehr!
+      - eine Portion [Pastete](pyramid_field) mehr!
+      - eine Portion [Leberpastete](pyramid_field) mehr!
+      - eine Portion [Sülze](pyramid_field) mehr!
+      - eine Portion [Bratensülze](pyramid_field) mehr!
+      - eine Portion [Ente](pyramid_field) mehr!
+      - eine Portion [Gans](pyramid_field) mehr!
+      - eine Portion [Fondue](pyramid_field) mehr!
+      - eine Portion [BBQ](pyramid_field) mehr!
+      - eine Portion [Pistazienbutter](pyramid_field) mehr!
+      - eine Portion [Buter](pyramid_field) mehr!
+      - eine Portion [Magarine](pyramid_field) mehr!
+      - eine Portion [Frittierfett](pyramid_field) mehr!
+      - eine Portion [Kokosfett](pyramid_field) mehr!
+      - eine Portion [Palmfett](pyramid_field) mehr!
+      - eine Portion [Palmöl](pyramid_field) mehr!
+      - eine Portion [Hanföl](pyramid_field) mehr!
+      - füge eine Portion [Süßes](pyramid_field) zu meiner Pyramide hinzu!
+      - füge eine Portion [Knabberzeug](pyramid_field) zu meiner Pyramide hinzu!
+      - füge eine Portion [Knabberreien](pyramid_field) zu meiner Pyramide hinzu!
+      - ich habe gerade 0,5 [Cookie](pyramid_field) gegessen.
+      - ich habe gerade 0,5 [Keks](pyramid_field) gegessen.
+      - ich habe gerade 0,5 [Kekse](pyramid_field) gegessen.
+      - ich habe gerade 0,5 [Glückskeks](pyramid_field) gegessen.
+      - ich habe gerade 0,5 [Glückskekse](pyramid_field) gegessen.
+      - ich habe gerade 0,5 [Ramazotti](pyramid_field) gegessen.
+      - ich habe gerade 0,5 [Cantuccini](pyramid_field) gegessen.
+      - ich habe gerade 0,5 [Schokokeks](pyramid_field) gegessen.
+      - ich habe gerade 0,5 [Nimm2](pyramid_field) gegessen.
+      - ich habe gerade 0,5 [Nimm2 Soft](pyramid_field) gegessen.
+      - ich habe gerade 0,5 [Maoam](pyramid_field) gegessen.
+      - ich habe gerade 0,5 [Duplo](pyramid_field) gegessen.
+      - ich habe gerade 0,5 [Hanuta](pyramid_field) gegessen.
+      - ich habe gerade 0,5 [Manner Waffeln](pyramid_field) gegessen.
+      - ich habe gerade 0,5 [Manner Schnitten](pyramid_field) gegessen.
+      - ich habe gerade 0,5 [Snickers](pyramid_field) gegessen.
+      - ich habe gerade 0,5 [Mars](pyramid_field) gegessen.
+      - ich habe gerade 0,5 [Twix](pyramid_field) gegessen.
+      - ich habe gerade 0,5 [Linkes Twix](pyramid_field) gegessen.
+      - ich habe gerade 0,5 [Rechtes Twix](pyramid_field) gegessen.
+      - ich habe gerade das [Linke Twix](pyramid_field) gegessen.
+      - ich habe gerade das [Rechte Twix](pyramid_field) gegessen.
+      - füge eine Scheibe [Brot](pyramid_field) hinzu.
+      - ich habe gerade eine Scheibe [Brot](pyramid_field) gegessen.
+      - eine Scheibe [Brot](pyramid_field) mehr
+      - Füge 3 Portionen [Äpfel](pyramid_field) zu meine Pyramide hinzu!
+      - Füge 3 Portionen [Bananen](pyramid_field) zu meine Pyramide hinzu!
+      - Füge 3 Portionen [Birnen](pyramid_field) zu meine Pyramide hinzu!
+      - Füge 3 Portionen [Nektarinen](pyramid_field) zu meine Pyramide hinzu!
+      - Füge 3 Portionen [Pflaumen](pyramid_field) zu meine Pyramide hinzu!
+      - Füge 3 Portionen [Orangen](pyramid_field) zu meine Pyramide hinzu!
+      - Füge 3 Portionen [Nüsse](pyramid_field) zu meine Pyramide hinzu!
+      - Füge 3 Portionen [Walnüsse](pyramid_field) zu meine Pyramide hinzu!
+      - Füge 3 Portionen [Wassermelone](pyramid_field) zu meine Pyramide hinzu!
+      - Füge 3 Portionen [Melone](pyramid_field) zu meine Pyramide hinzu!
+      - Füge 3 Portionen [Saft](pyramid_field) zu meine Pyramide hinzu!
+      - Füge 3 Portionen [Fruchtsaft](pyramid_field) zu meine Pyramide hinzu!
+      - Füge 3 Portionen [Orangensaft](pyramid_field) zu meine Pyramide hinzu!
+      - Füge 3 Portionen [Apfelsaft](pyramid_field) zu meine Pyramide hinzu!
+      - Füge 3 Portionen [Traubensaft](pyramid_field) zu meine Pyramide hinzu!
+      - Füge 3 Portionen [Gurken](pyramid_field) zu meine Pyramide hinzu!
+      - Füge 3 Portionen [Karotten](pyramid_field) zu meine Pyramide hinzu!
+      - Füge 3 Portionen [KH](pyramid_field) zu meine Pyramide hinzu!
+      - Füge 3 Portionen [KHs](pyramid_field) zu meine Pyramide hinzu!
+      - Füge 3 Portionen [beilage](pyramid_field) zu meine Pyramide hinzu!
+      - Füge 3 Portionen [Kartoffel](pyramid_field) zu meine Pyramide hinzu!
+      - Füge 3 Portionen [Baguette](pyramid_field) zu meine Pyramide hinzu!
+      - Füge 3 Portionen [Tofu](pyramid_field) zu meine Pyramide hinzu!
+      - Füge 3 Portionen [Margarine](pyramid_field) zu meine Pyramide hinzu!
+      - eine portion [fleisch](pyramid_field) mehr!
+      - eine portion [fisch](pyramid_field) mehr!
+      - eine portion [öl](pyramid_field) mehr!
+
+  - intent: remove_portion
+    examples: |
+      - -[Öl](pyramid_field)
+      - lösche eine Portion [Wasser](pyramid_field)
+      - ein [Wasser](pyramid_field) weniger
+      - ich habe eine Portion [Milchprodukte](pyramid_field) zu viel eingetragen
+      - ich habe eine Portion [fett](pyramid_field) zu viel eingetragen
+      - mache ein Feld [Milchprodukte](pyramid_field) grau
+      - ziehe drei Portionen [Wasser](pyramid_field) ab
+      - ziehe 1,5 Portionen [Gemüse](pyramid_field) ab
+      - ziehe eine Portion [Obst](pyramid_field) ab
+      - ziehe eine Portion [Kohlenhydrate](pyramid_field) ab
+      - ziehe eine Portion [Milchprodukte](pyramid_field) ab
+      - ziehe eine Portion [Fleisch](pyramid_field) ab
+      - ziehe eine Portion [Fett](pyramid_field) ab
+      - ziehe eine Portion [Öl](pyramid_field) ab
+      - ziehe eine Portion [Extras](pyramid_field) ab
+      - ziehe eine Portion [getränke](pyramid_field) ab
+      - ziehe eine Portion [wasser](pyramid_field) ab
+      - ziehe eine Portion [tee](pyramid_field) ab
+      - ziehe eine Portion [kaffee](pyramid_field) ab
+      - ziehe eine Portion [sprudelwasser](pyramid_field) ab
+      - lösche eine Tasse [Früchtetee](pyramid_field)
+      - lösche eine Tasse [Kräutertee](pyramid_field)
+      - lösche eine Tasse [Minztee](pyramid_field)
+      - lösche eine Tasse [Pfefferminztee](pyramid_field)
+      - lösche eine Tasse [Fencheltee](pyramid_field)
+      - lösche ein Glas [Mineralwasser](pyramid_field)
+      - lösche eine Tasse [schwarzer Kaffee](pyramid_field)
+      - lösche eine Tasse [Espresso](pyramid_field)
+      - lösche eine Tasse [schwarzer Tee](pyramid_field)
+      - lösche eine Tasse [grüner Tee](pyramid_field)
+      - lösche eine Tasse [Brennesseltee](pyramid_field)
+      - ziehe eine Portion [Obst](pyramid_field) ab
+      - ziehe eine Portion [Früchte](pyramid_field) ab
+      - ziehe eine Portion [Beeren](pyramid_field) ab
+      - ziehe eine Portion [Obstsalat](pyramid_field) ab
+      - ziehe ein Feld [Apfel](pyramid_field) ab
+      - ziehe ein Feld [Banane](pyramid_field) ab
+      - ziehe ein Feld [Trauben](pyramid_field) ab
+      - ziehe ein Feld [Pfirsich](pyramid_field) ab
+      - ziehe ein Feld [Erdbeeren](pyramid_field) ab
+      - ziehe ein Feld [Birne](pyramid_field) ab
+      - ziehe ein Feld [Kirsche](pyramid_field) ab
+      - ziehe ein Feld [Nektarine](pyramid_field) ab
+      - ziehe ein Feld [Himbeeren](pyramid_field) ab
+      - ziehe ein Feld [Pflaume](pyramid_field) ab
+      - ziehe ein Feld [Orange](pyramid_field) ab
+      - ziehe ein Feld [Mandarine](pyramid_field) ab
+      - ziehe eine Hand [gemüse](pyramid_field) ab
+      - ziehe eine Portion [grünzeug](pyramid_field) ab
+      - ziehe eine Portion [veggies](pyramid_field) ab
+      - ziehe eine Hand [rohkost](pyramid_field) ab
+      - ziehe eine Portion [salat](pyramid_field) ab
+      - ziehe eine Portion [grüner Salat](pyramid_field) ab
+      - bitte drei Portionen [Tomate](pyramid_field) weniger
+      - bitte vier Portionen [Gurke](pyramid_field) weniger
+      - bitte eine Portion [Rübe](pyramid_field) weniger
+      - bitte drei Portionen [Karotte](pyramid_field) weniger
+      - bitte drei Portionen [Zucchini](pyramid_field) weniger
+      - bitte 2 Portionen [Aubergine](pyramid_field) weniger
+      - bitte drei Portionen [Radieschen](pyramid_field) weniger
+      - bitte 4 Portionen [Zwiebel](pyramid_field) weniger
+      - bitte drei Portionen [Pilze](pyramid_field) weniger
+      - bitte zwei Portionen [Paprika](pyramid_field) weniger
+      - bitte 7 Portionen [Sellerie](pyramid_field) weniger
+      - bitte drei Portionen [Eisbergsalat](pyramid_field) weniger
+      - ziehe bitte drei Portionen [Blumenkohl](pyramid_field) ab
+      - ziehe bitte eine Portion [Brokkoli](pyramid_field) ab
+      - ziehe bitte drei Portionen [Kohl](pyramid_field) ab
+      - ziehe bitte 2,5 Hände [Sauerkraut](pyramid_field) ab
+      - ziehe eine Hand [kohlenhydrate](pyramid_field) ab
+      - ziehe eine Portion [beilagen](pyramid_field) ab
+      - ziehe eine Portion [Kartoffeln](pyramid_field) ab
+      - ziehe eine Hand [Nudeln](pyramid_field) ab
+      - ziehe eine Portion [Reis](pyramid_field) ab
+      - ziehe eine Portion [Quinoa](pyramid_field) ab
+      - ziehe eine Portion [Brot](pyramid_field) ab
+      - ziehe eine Hand [Vollkornbrot](pyramid_field) ab
+      - ziehe eine Portion [Vollkornreis](pyramid_field) ab
+      - ziehe eine Portion [Couscous](pyramid_field) ab
+      - lösche ein Feld [Kartoffelbrei](pyramid_field) aus der Pyramide
+      - lösche ein Feld [Kartoffelpüree](pyramid_field) aus der Pyramide
+      - lösche ein Feld [Kartoffelstampf](pyramid_field) aus der Pyramide
+      - lösche ein Feld [Wrap](pyramid_field) aus der Pyramide
+      - lösche ein Feld [Tortilla](pyramid_field) aus der Pyramide
+      - lösche zwei Hände [Vollkornnudeln](pyramid_field) aus der Pyramide
+      - lösche ein Feld [Süßkartoffel](pyramid_field) aus der Pyramide
+      - lösche ein Feld [Haferflocken](pyramid_field) aus der Pyramide
+      - lösche eine Hand voll [Polenta](pyramid_field) aus der Pyramide
+      - ziehe eine Portion [Milchprodukte](pyramid_field) ab
+      - ziehe eine Portion [Milch](pyramid_field) ab
+      - ziehe eine Portion [Joghurt](pyramid_field) ab
+      - ziehe eine Portion [Käse](pyramid_field) ab
+      - ziehe eine Portion [Fruchtzwerg](pyramid_field) ab
+      - ziehe eine Portion [Fruchtjoghurt](pyramid_field) ab
+      - ziehe eine Portion [Frischkäse](pyramid_field) ab
+      - Kannst du bitte eine Portion [Quark](pyramid_field) abziehen?
+      - Kannst du bitte eine Portion [Magerquark](pyramid_field) abziehen?
+      - Kannst du bitte eine Portion [Scheibenkäse](pyramid_field) abziehen?
+      - Kannst du bitte eine Portion [Reibekäse](pyramid_field) abziehen?
+      - Kannst du bitte eine Portion [Parmesan](pyramid_field) abziehen?
+      - Kannst du bitte eine Portion [Pizzakäse](pyramid_field) abziehen?
+      - Kannst du bitte eine Portion [Skyr](pyramid_field) abziehen?
+      - Kannst du bitte eine Portion [Sahne](pyramid_field) abziehen?
+      - ziehe eine Hand voll [Fleisch](pyramid_field) ab
+      - ziehe eine Portion [Wurst](pyramid_field) ab
+      - ziehe eine Portion [Fisch](pyramid_field) ab
+      - ziehe eine Portion [Ei](pyramid_field) ab
+      - ziehe eine Portion [Hülsenfrüchte](pyramid_field) ab
+      - ziehe eine Portion [Steak](pyramid_field) ab
+      - ziehe eine Portion [Hühnchen](pyramid_field) ab
+      - ziehe eine Portion [Hackfleisch](pyramid_field) ab
+      - bitte eine Portion [Wurstaufschnitt](pyramid_field) weniger
+      - bitte eine Portion [Leberwurst](pyramid_field) weniger
+      - bitte eine Portion [Mettwurst](pyramid_field) weniger
+      - bitte eine Portion [Teewurst](pyramid_field) weniger
+      - bitte eine Portion [Mortadella](pyramid_field) weniger
+      - bitte eine Portion [Schinken](pyramid_field) weniger
+      - bitte eine Portion [Putenbrust](pyramid_field) weniger
+      - bitte vier Portionen [Lachs](pyramid_field) weniger
+      - bitte vier Portionen [Makrele](pyramid_field) weniger
+      - bitte vier Portionen [Hering](pyramid_field) weniger
+      - bitte vier Portionen [Thunfisch](pyramid_field) weniger
+      - bitte vier Portionen [Eier](pyramid_field) weniger
+      - bitte vier Portionen [Kichererbsen](pyramid_field) weniger
+      - bitte vier Portionen [Linsen](pyramid_field) weniger
+      - bitte vier Portionen [Belugalinsen](pyramid_field) weniger
+      - bitte vier Portionen [rote Linsen](pyramid_field) weniger
+      - bitte zwei Portionen [vegane Wurst](pyramid_field) weniger
+      - bitte zwei Portionen [Burgerpatties](pyramid_field) weniger
+      - bitte zwei Portionen [vegane Burgerpatties](pyramid_field) weniger
+      - bitte zwei Portionen [Lammfilet](pyramid_field) weniger
+      - bitte zwei Portionen [Schweinenacken](pyramid_field) weniger
+      - bitte zwei Portionen [Rinderfilet](pyramid_field) weniger
+      - bitte zwei Portionen [Rumpsteak](pyramid_field) weniger
+      - ziehe eine Portion [Fett](pyramid_field) ab
+      - ziehe eine Portion [Butter](pyramid_field) ab
+      - ziehe eine Portion [Magarine](pyramid_field) ab
+      - ziehe eine Portion [Kokosöl](pyramid_field) ab
+      - ziehe eine Portion [Schmalz](pyramid_field) ab
+      - ziehe zwei Portionen [Griebenschmalz](pyramid_field) ab
+      - ziehe zwei Portionen [Erdnussbutter](pyramid_field) ab
+      - ziehe zwei Portionen [Mandelbutter](pyramid_field) ab
+      - ziehe zwei Portionen [Cashewbutter](pyramid_field) ab
+      - ziehe eine Portion [Öl](pyramid_field) ab
+      - ziehe eine Portion [Olivenöl](pyramid_field) ab
+      - ziehe eine Portion [Sonnenblumenöl](pyramid_field) ab
+      - ziehe eine Portion [Rapsöl](pyramid_field) ab
+      - ziehe eine Portion [Leinöl](pyramid_field) ab
+      - ich haben aus Versehen eine Portion [Walnussöl](pyramid_field) zu viel eingetragen
+      - ich haben aus Versehen 3 Portionen [Sesamöl](pyramid_field) zu viel eingetragen
+      - ich haben aus Versehen zwei Portionen [Erdnussöl](pyramid_field) zu viel eingetragen
+      - ich haben aus Versehen eine Portion [Avocadoöl](pyramid_field) zu viel eingetragen
+      - ich haben aus Versehen 3 Portionen [Maiskeimöl](pyramid_field) zu viel eingetragen
+      - ich haben aus Versehen eine Portion [Mazola Öl](pyramid_field) zu viel eingetragen
+      - ich haben aus Versehen zwei Portionen [Bratspray](pyramid_field) zu viel eingetragen
+      - ziehe eine Portion [Extras](pyramid_field) ab
+      - ziehe eine Handfläche voll [Schokolade](pyramid_field) ab
+      - ziehe eine Portion [Gummibärchen](pyramid_field) ab
+      - ziehe eine Portion [Eis](pyramid_field) ab
+      - ziehe eine Handfläche voll [Chips](pyramid_field) ab
+      - ziehe eine Portion [Süßigkeiten](pyramid_field) ab
+      - Bitte lösche die [Cola](pyramid_field) doch wieder aus meine Pyramide
+      - Bitte lösche die [Fanta](pyramid_field) doch wieder aus meine Pyramide
+      - Bitte lösche die [Sprite](pyramid_field) doch wieder aus meine Pyramide
+      - Bitte lösche die [Limo](pyramid_field) doch wieder aus meine Pyramide
+      - Bitte lösche die [Limonade](pyramid_field) doch wieder aus meine Pyramide
+      - Bitte lösche die [Kuchen](pyramid_field) doch wieder aus meine Pyramide
+      - Bitte lösche die [Torte](pyramid_field) doch wieder aus meine Pyramide
+      - Bitte lösche die [Kekse](pyramid_field) doch wieder aus meine Pyramide
+      - Bitte lösche die Portion [Pommes](pyramid_field) doch wieder aus meine Pyramide
+      - Bitte lösche die Portion [Pommes Frittes](pyramid_field) doch wieder aus meine Pyramide
+      - Bitte lösche die Portion [Wein](pyramid_field) doch wieder aus meine Pyramide
+      - Bitte lösche die Portion [Bier](pyramid_field) doch wieder aus meine Pyramide
+      - Bitte lösche den [Schnaps](pyramid_field) doch wieder aus meine Pyramide
+      - Bitte lösche den [Rotwein](pyramid_field) doch wieder aus meine Pyramide
+      - Bitte lösche den [Weißwein](pyramid_field) doch wieder aus meine Pyramide
+      - Bitte lösche den [Whisky](pyramid_field) doch wieder aus meine Pyramide
+      - Bitte lösche den [Whiskey](pyramid_field) doch wieder aus meine Pyramide
+      - Bitte lösche die Portion [RedBull](pyramid_field) doch wieder aus meine Pyramide
+      - Bitte lösche den [Vodka](pyramid_field) doch wieder aus meine Pyramide
+      - Bitte lösche das [Gustl](pyramid_field) doch wieder aus meine Pyramide
+      - Bitte lösche die Portion [Augustiner](pyramid_field) doch wieder aus meine Pyramide
+      - Bitte lösche die [Erdnüsse](pyramid_field) doch wieder aus meine Pyramide
+      - Bitte lösche die [NicNacs](pyramid_field) doch wieder aus meine Pyramide
+      - Bitte lösche die Portion [Studentenfutter](pyramid_field) doch wieder aus meine Pyramide
+      - Bitte lösche die [Schoki](pyramid_field) doch wieder aus meine Pyramide
+      - Bitte lösche die Portion [Schokoriegel](pyramid_field) doch wieder aus meine Pyramide
+      - Bitte lösche die Portion [Snickers](pyramid_field) doch wieder aus meine Pyramide
+      - Ziehe 1,5 Portionen [Plätzchen](pyramid_field) ab
+      - Ziehe 1,5 Portionen [Kekse](pyramid_field) ab
+      - Ziehe 1,5 Portionen [Glühwein](pyramid_field) ab
+      - Ziehe 1,5 Portionen [Kinderpunsch](pyramid_field) ab
+      - Ziehe 1,5 Portionen [Lebkuchen](pyramid_field) ab
+      - zieh bitte eine Portion [Kaffe](pyramid_field) ab.
+      - zieh bitte eine Portion [Kafee](pyramid_field) ab.
+      - zieh bitte eine Portion [Kafe](pyramid_field) ab.
+      - zieh bitte eine Portion [Expresso](pyramid_field) ab.
+      - zieh bitte eine Portion [Clementine](pyramid_field) ab.
+      - zieh bitte eine Portion [Mango](pyramid_field) ab.
+      - zieh bitte eine Portion [Mangos](pyramid_field) ab.
+      - zieh bitte eine Portion [Papaya](pyramid_field) ab.
+      - zieh bitte eine Portion [Grapefruit](pyramid_field) ab.
+      - zieh bitte eine Portion [Pomelo](pyramid_field) ab.
+      - zieh bitte eine Portion [Passionsfrucht](pyramid_field) ab.
+      - zieh bitte eine Portion [Maracuja](pyramid_field) ab.
+      - zieh bitte eine Portion [Rüben](pyramid_field) ab.
+      - zieh bitte eine Portion [schwarze Linsen](pyramid_field) ab.
+      - zieh bitte eine Portion [Kirschtomate](pyramid_field) ab.
+      - zieh bitte eine Portion [Kirschtomaten](pyramid_field) ab.
+      - zieh bitte eine Portion [Chili](pyramid_field) ab.
+      - zieh bitte eine Portion [Peperoni](pyramid_field) ab.
+      - zieh bitte eine Portion [Rotkohl](pyramid_field) ab.
+      - zieh bitte eine Portion [Blaukraut](pyramid_field) ab.
+      - zieh bitte eine Portion [Eisbergsalat](pyramid_field) ab.
+      - zieh bitte eine Portion [Romasalat](pyramid_field) ab.
+      - zieh bitte eine Portion [Roma Salat](pyramid_field) ab.
+      - zieh bitte eine Portion [Salatherz](pyramid_field) ab.
+      - zieh bitte eine Portion [Salatherzen](pyramid_field) ab.
+      - zieh bitte eine Portion [Austernpilz](pyramid_field) ab.
+      - zieh bitte eine Portion [Austernpilze](pyramid_field) ab.
+      - zieh bitte eine Portion [Champignon](pyramid_field) ab.
+      - zieh bitte eine Portion [Champignons](pyramid_field) ab.
+      - zieh bitte eine Portion [Kräuterseitling](pyramid_field) ab.
+      - zieh bitte eine Portion [Kräuterseitlinge](pyramid_field) ab.
+      - zieh bitte eine Portion [Prizessbohnen](pyramid_field) ab.
+      - zieh bitte eine Portion [grüne Bohnen](pyramid_field) ab. 
+      - zieh bitte eine Portion [Brechbohnen](pyramid_field) ab.
+      - zieh bitte eine Portion [Müsli](pyramid_field) ab.
+      - zieh bitte eine Portion [Cornflakes](pyramid_field) ab.
+      - zieh bitte eine Portion [Rice Crispies](pyramid_field) ab. 
+      - zieh bitte eine Portion [Puffreis](pyramid_field) ab.
+      - zieh bitte eine Portion [Basismüsli](pyramid_field) ab.
+      - zieh bitte eine Portion [Frühstücksflocken](pyramid_field) ab.
+      - zieh bitte eine Portion [Kölln Flocken](pyramid_field) ab.
+      - zieh bitte eine Portion [Dinkelflocken](pyramid_field) ab.
+      - zieh bitte eine Portion [Früchtemüsli](pyramid_field) ab.
+      - zieh bitte eine Portion [Knuspermüsli](pyramid_field) ab.
+      - zieh bitte eine Portion [Bergsteigermüsli](pyramid_field) ab.
+      - zieh bitte eine Portion [Amarant](pyramid_field) ab.
+      - zieh bitte eine Portion [Bulgur](pyramid_field) ab.
+      - zieh bitte eine Portion [Tortilla](pyramid_field) ab.
+      - zieh bitte eine Portion [Knäckebrot](pyramid_field) ab.
+      - zieh bitte eine Portion [Cracker](pyramid_field) ab.
+      - zieh bitte eine Portion [Seitenbacher Bergsteigermüsli](pyramid_field) ab.
+      - zieh bitte eine Portion [MyMuesli](pyramid_field) ab.
+      - zieh bitte eine Portion [Toast](pyramid_field) ab.
+      - zieh bitte eine Portion [Toastbrot](pyramid_field) ab.
+      - zieh bitte eine Portion [Semmel](pyramid_field) ab.
+      - zieh bitte eine Portion [Semmeln](pyramid_field) ab.
+      - zieh bitte eine Portion [Brötchen](pyramid_field) ab.
+      - zieh bitte eine Portion [Kornspitz](pyramid_field) ab.
+      - zieh bitte eine Portion [Breze](pyramid_field) ab.
+      - zieh bitte eine Portion [Bauernbrot](pyramid_field) ab.
+      - zieh bitte eine Portion [Roggenbrot](pyramid_field) ab.
+      - zieh bitte eine Portion [Kochsahne](pyramid_field) ab.
+      - zieh bitte eine Portion [Topfen](pyramid_field) ab.
+      - zieh bitte eine Portion [Maskarpone](pyramid_field) ab.
+      - zieh bitte eine Portion [griechischer Joghurt](pyramid_field) ab.
+      - zieh bitte eine Portion [Jogurt](pyramid_field) ab.
+      - zieh bitte eine Portion [Jogurth](pyramid_field) ab.
+      - zieh bitte eine Portion [Kaffesahne](pyramid_field) ab.
+      - zieh bitte eine Portion [Kaffeesahne](pyramid_field) ab.
+      - zieh bitte eine Portion [Bergkäse](pyramid_field) ab.
+      - zieh bitte eine Portion [Brie](pyramid_field) ab.
+      - lösche eine Portion [Camenbert](pyramid_field)!
+      - lösche eine Portion [Gouda](pyramid_field)!
+      - lösche eine Portion [Cheddar](pyramid_field)!
+      - lösche eine Portion [Kefir](pyramid_field)!
+      - lösche eine Portion [Buttermilch](pyramid_field)!
+      - lösche eine Portion [Quäse](pyramid_field)!
+      - lösche eine Portion [Harzer Roller](pyramid_field)!
+      - lösche eine Portion [Racelette](pyramid_field)!
+      - lösche eine Portion [Raclette](pyramid_field)!
+      - lösche eine Portion [Raclett](pyramid_field)!
+      - lösche eine Portion [Käsefondue](pyramid_field)!
+      - lösche eine Portion [Hähnchen](pyramid_field)!
+      - lösche eine Portion [Forelle](pyramid_field)!
+      - lösche eine Portion [Geschnetzeltes](pyramid_field)!
+      - lösche eine Portion [Tartar](pyramid_field)!
+      - lösche eine Portion [Carpaccio](pyramid_field)!
+      - lösche eine Portion [T-Bone Steak](pyramid_field)!
+      - lösche eine Portion [Burger](pyramid_field)!
+      - lösche eine Portion [Salami](pyramid_field)!
+      - lösche eine Portion [Pastete](pyramid_field)!
+      - lösche eine Portion [Leberpastete](pyramid_field)!
+      - lösche eine Portion [Sülze](pyramid_field)!
+      - lösche eine Portion [Bratensülze](pyramid_field)!
+      - lösche eine Portion [Ente](pyramid_field)!
+      - lösche eine Portion [Gans](pyramid_field)!
+      - lösche eine Portion [Fondue](pyramid_field)!
+      - lösche eine Portion [BBQ](pyramid_field)!
+      - lösche eine Portion [Pistazienbutter](pyramid_field)!
+      - lösche eine Portion [Buter](pyramid_field)!
+      - lösche eine Portion [Magarine](pyramid_field)!
+      - lösche eine Portion [Frittierfett](pyramid_field)!
+      - lösche eine Portion [Kokosfett](pyramid_field)!
+      - lösche eine Portion [Palmfett](pyramid_field)!
+      - lösche eine Portion [Palmöl](pyramid_field)!
+      - lösche eine Portion [Hanföl](pyramid_field)!
+      - ziehe ein Feld [Süßes](pyramid_field) von meiner Pyramide ab!
+      - ziehe ein Feld [Knabberzeug](pyramid_field) von meiner Pyramide ab!
+      - ziehe ein Feld [Knabberreien](pyramid_field) von meiner Pyramide ab!
+      - ziehe bitte 0,5 [Cookie](pyramid_field) ab!
+      - ziehe bitte 0,5 [Keks](pyramid_field) ab!
+      - ziehe bitte 0,5 [Kekse](pyramid_field) ab!
+      - ziehe bitte 0,5 [Glückskeks](pyramid_field) ab!
+      - ziehe bitte 0,5 [Glückskekse](pyramid_field) ab!
+      - ziehe bitte 0,5 [Ramazotti](pyramid_field) ab!
+      - ziehe bitte 0,5 [Cantuccini](pyramid_field) ab!
+      - ziehe bitte 0,5 [Schokokeks](pyramid_field) ab!
+      - ziehe bitte 0,5 [Nimm2](pyramid_field) ab!
+      - ziehe bitte 0,5 [Nimm2 Soft](pyramid_field) ab!
+      - ziehe bitte 0,5 [Maoam](pyramid_field) ab!
+      - ziehe bitte 0,5 [Duplo](pyramid_field) ab!
+      - ziehe bitte 0,5 [Hanuta](pyramid_field) ab!
+      - ziehe bitte 0,5 [Manner Waffeln](pyramid_field) ab!
+      - ziehe bitte 0,5 [Manner Schnitten](pyramid_field) ab!
+      - ziehe bitte 0,5 [Snickers](pyramid_field) ab!
+      - ziehe bitte 0,5 [Mars](pyramid_field) ab!
+      - ziehe bitte 0,5 [Twix](pyramid_field) ab!
+      - ziehe bitte 0,5 [Linkes Twix](pyramid_field) ab!
+      - ziehe bitte 0,5 [Rechtes Twix](pyramid_field) ab!
+      - ziehe bitte das [Linke Twix](pyramid_field) ab!
+      - ziehe bitte das [Rechte Twix](pyramid_field) ab!
+      - ziehe eine Scheibe [Brot](pyramid_field) ab.
+      - lösche eine Scheibe [Brot](pyramid_field) aus meiner Pyramide.
+      - eine Scheibe [Brot](pyramid_field) weniger
+      - Ziehe bitte 3 Portionen [Äpfel](pyramid_field) von meiner Pyramide ab!
+      - Ziehe bitte 3 Portionen [Bananen](pyramid_field) von meiner Pyramide ab!
+      - Ziehe bitte 3 Portionen [Birnen](pyramid_field) von meiner Pyramide ab!
+      - Ziehe bitte 3 Portionen [Nektarinen](pyramid_field) von meiner Pyramide ab!
+      - Ziehe bitte 3 Portionen [Pflaumen](pyramid_field) von meiner Pyramide ab!
+      - Ziehe bitte 3 Portionen [Orangen](pyramid_field) von meiner Pyramide ab!
+      - Ziehe bitte 3 Portionen [Nüsse](pyramid_field) von meiner Pyramide ab!
+      - Ziehe bitte 3 Portionen [Walnüsse](pyramid_field) von meiner Pyramide ab!
+      - Ziehe bitte 3 Portionen [Wassermelone](pyramid_field) von meiner Pyramide ab!
+      - Ziehe bitte 3 Portionen [Melone](pyramid_field) von meiner Pyramide ab!
+      - Ziehe bitte 3 Portionen [Saft](pyramid_field) von meiner Pyramide ab!
+      - Ziehe bitte 3 Portionen [Fruchtsaft](pyramid_field) von meiner Pyramide ab!
+      - Ziehe bitte 3 Portionen [Orangensaft](pyramid_field) von meiner Pyramide ab!
+      - Ziehe bitte 3 Portionen [Apfelsaft](pyramid_field) von meiner Pyramide ab!
+      - Ziehe bitte 3 Portionen [Traubensaft](pyramid_field) von meiner Pyramide ab!
+      - Ziehe bitte 3 Portionen [Gurken](pyramid_field) von meiner Pyramide ab!
+      - Ziehe bitte 3 Portionen [Karotten](pyramid_field) von meiner Pyramide ab!
+      - Ziehe bitte 3 Portionen [KH](pyramid_field) von meiner Pyramide ab!
+      - Ziehe bitte 3 Portionen [KHs](pyramid_field) von meiner Pyramide ab!
+      - Ziehe bitte 3 Portionen [beilage](pyramid_field) von meiner Pyramide ab!
+      - Ziehe bitte 3 Portionen [Kartoffel](pyramid_field) von meiner Pyramide ab!
+      - Ziehe bitte 3 Portionen [Baguette](pyramid_field) von meiner Pyramide ab!
+      - Ziehe bitte 3 Portionen [Tofu](pyramid_field) von meiner Pyramide ab!
+      - Ziehe bitte 3 Portionen [Margarine](pyramid_field) von meiner Pyramide ab!
+      - eine portion [fleisch](pyramid_field) weniger!
+      - eine portion [fisch](pyramid_field) weniger!
+      - eine portion [öl](pyramid_field) weniger!
+
+  - intent: get_portions
+    examples: |
+      - wie viel [Wasser](pyramid_field) habe ich heute noch übrig?
+      - wie viel [Wasser](pyramid_field) kann ich noch trinken?
+      - kann ich heute noch [Milchprodukte](pyramid_field) essen?
+      - wie viele Felder [Milchprodukte](pyramid_field) habe ich noch frei?
+      - wie viele Felder [fett](pyramid_field) habe ich noch frei?
+      - Wie viel [Wasser](pyramid_field) hatte ich am 13.10.2021 noch übrig?
+      - Wie viele Felder [Gemüse](pyramid_field) waren gestern noch frei?
+      - wie viele Portionen [Obst](pyramid_field) habe ich heute schon gegessen?
+      - wie viele Portionen [Kohlenhydrate](pyramid_field) habe ich heute schon gegessen?
+      - wie viele Portionen [Milchprodukte](pyramid_field) habe ich heute schon gegessen?
+      - wie viele Portionen [Fleisch](pyramid_field) habe ich heute schon gegessen?
+      - wie viele Portionen [Fett](pyramid_field) habe ich heute schon gegessen?
+      - wie viele Portionen [Öl](pyramid_field) habe ich heute schon gegessen?
+      - wie viele Portionen [Extras](pyramid_field) habe ich heute schon gegessen?
+      - wie viele Portionen [getränke](pyramid_field) habe ich heute schon gegessen?
+      - wie viele Portionen [wasser](pyramid_field) habe ich heute schon gegessen?
+      - wie viele Portionen [tee](pyramid_field) habe ich heute schon gegessen?
+      - wie viele Portionen [kaffee](pyramid_field) habe ich heute schon gegessen?
+      - wie viele Portionen [sprudelwasser](pyramid_field) habe ich heute schon gegessen?
+      - habe ich gestern zu viel [Früchtetee](pyramid_field) getrunken?
+      - habe ich gestern zu viel [Kräutertee](pyramid_field) getrunken?
+      - habe ich gestern zu viel [Minztee](pyramid_field) getrunken?
+      - habe ich gestern zu viel [Pfefferminztee](pyramid_field) getrunken?
+      - habe ich gestern zu viel [Fencheltee](pyramid_field) getrunken?
+      - habe ich gestern zu viel [Mineralwasser](pyramid_field) getrunken?
+      - habe ich gestern zu viel [schwarzer Kaffee](pyramid_field) getrunken?
+      - habe ich gestern zu viel [Espresso](pyramid_field) getrunken?
+      - habe ich gestern zu viel [schwarzer Tee](pyramid_field) getrunken?
+      - habe ich gestern zu viel [grüner Tee](pyramid_field) getrunken?
+      - habe ich gestern zu viel [Brennesseltee](pyramid_field) getrunken?
+      - wie viele Portionen [Obst](pyramid_field) kann ich heute noch eintragen?
+      - wie viele Portionen [Früchte](pyramid_field) kann ich heute noch eintragen?
+      - wie viele Portionen [Beeren](pyramid_field) kann ich heute noch eintragen?
+      - wie viele Portionen [Obstsalat](pyramid_field) kann ich heute noch eintragen?
+      - wie viele Portionen [Apfel](pyramid_field) kann ich heute noch eintragen?
+      - wie viele Portionen [Banane](pyramid_field) kann ich heute noch eintragen?
+      - wie viele Portionen [Trauben](pyramid_field) kann ich heute noch eintragen?
+      - wie viele Portionen [Pfirsich](pyramid_field) kann ich heute noch eintragen?
+      - wie viel [Erdbeeren](pyramid_field) habe ich noch übrig?
+      - wie viel [Birne](pyramid_field) habe ich noch übrig?
+      - wie viel [Kirsche](pyramid_field) habe ich noch übrig?
+      - wie viel [Nektarine](pyramid_field) habe ich noch übrig?
+      - wie viel [Himbeeren](pyramid_field) habe ich noch übrig?
+      - wie viel [Pflaume](pyramid_field) habe ich noch übrig?
+      - wie viel [Orange](pyramid_field) habe ich noch übrig?
+      - wie viel [Mandarine](pyramid_field) habe ich noch übrig?
+      - wie viel [gemüse](pyramid_field) habe ich noch übrig?
+      - wie viel [grünzeug](pyramid_field) habe ich noch übrig?
+      - wie viel [veggies](pyramid_field) habe ich noch übrig?
+      - wie viel [rohkost](pyramid_field) habe ich noch übrig?
+      - wie viel [salat](pyramid_field) habe ich noch übrig?
+      - wie viel [grüner Salat](pyramid_field) habe ich noch übrig?
+      - kann ich heute noch [Tomate](pyramid_field) essen?
+      - kann ich heute noch [Gurke](pyramid_field) essen?
+      - kann ich heute noch [Rübe](pyramid_field) essen?
+      - kann ich heute noch [Karotte](pyramid_field) essen?
+      - kann ich heute noch [Zucchini](pyramid_field) essen?
+      - kann ich heute noch [Aubergine](pyramid_field) essen?
+      - kann ich heute noch [Radieschen](pyramid_field) essen?
+      - kann ich heute noch [Zwiebel](pyramid_field) essen?
+      - kann ich heute noch [Pilze](pyramid_field) essen?
+      - kann ich heute noch [Paprika](pyramid_field) essen?
+      - kann ich heute noch [Sellerie](pyramid_field) essen?
+      - kann ich heute noch [Eisbergsalat](pyramid_field) essen?
+      - wie viel [Blumenkohl](pyramid_field) habe ich vor einer Woche eingetragen?
+      - wie viel [Brokkoli](pyramid_field) habe ich vor einer Woche eingetragen?
+      - wie viel [Kohl](pyramid_field) habe ich vor einer Woche eingetragen?
+      - wie viel [Sauerkraut](pyramid_field) habe ich vor einer Woche eingetragen?
+      - sind noch Felder von [kohlenhydrate](pyramid_field) grau?
+      - sind noch Felder von [beilagen](pyramid_field) grau?
+      - sind noch Felder von [Kartoffeln](pyramid_field) grau?
+      - sind noch Felder von [Nudeln](pyramid_field) grau?
+      - sind noch Felder von [Reis](pyramid_field) grau?
+      - sind noch Felder von [Quinoa](pyramid_field) grau?
+      - sind noch Felder von [Brot](pyramid_field) grau?
+      - sind noch Felder von [Vollkornbrot](pyramid_field) grau?
+      - sind noch Felder von [Vollkornreis](pyramid_field) grau?
+      - sind noch Felder von [Couscous](pyramid_field) grau?
+      - wie viele Portionen [Kartoffelbrei](pyramid_field) habe ich morgen frei?
+      - wie viele Portionen [Kartoffelpüree](pyramid_field) habe ich morgen frei?
+      - wie viele Portionen [Kartoffelstampf](pyramid_field) habe ich morgen frei?
+      - wie viele Portionen [Wrap](pyramid_field) habe ich morgen frei?
+      - wie viele Portionen [Tortilla](pyramid_field) habe ich morgen frei?
+      - wie viele Portionen [Vollkornnudeln](pyramid_field) habe ich morgen frei?
+      - wie viele Portionen [Süßkartoffel](pyramid_field) habe ich morgen frei?
+      - wie viele Portionen [Haferflocken](pyramid_field) habe ich morgen frei?
+      - wie viele Portionen [Polenta](pyramid_field) habe ich morgen frei?
+      - habe ich noch [Milchprodukte](pyramid_field) frei?
+      - Kannst du mir sagen wie viel [Milch](pyramid_field) ich noch essen kann?
+      - Kannst du mir sagen wie viel [Joghurt](pyramid_field) ich noch essen kann?
+      - Kannst du mir sagen wie viel [Käse](pyramid_field) ich noch essen kann?
+      - Kannst du mir sagen wie viel [Fruchtzwerg](pyramid_field) ich noch essen kann?
+      - Kannst du mir sagen wie viel [Fruchtjoghurt](pyramid_field) ich noch essen kann?
+      - Kannst du mir sagen wie viel [Frischkäse](pyramid_field) ich noch essen kann?
+      - Habe ich noch Portionen an [Quark](pyramid_field) frei?
+      - Habe ich noch Portionen an [Magerquark](pyramid_field) frei?
+      - Habe ich noch Portionen an [Scheibenkäse](pyramid_field) frei?
+      - Habe ich noch Portionen an [Reibekäse](pyramid_field) frei?
+      - Habe ich noch Portionen an [Parmesan](pyramid_field) frei?
+      - Habe ich noch Portionen an [Pizzakäse](pyramid_field) frei?
+      - Habe ich noch Portionen an [Skyr](pyramid_field) frei?
+      - Habe ich noch Portionen an [Sahne](pyramid_field) frei?
+      - Zeige mir an wie viel [Fleisch](pyramid_field) ich noch nicht gegessen habe.
+      - Zeige mir an wie viel [Wurst](pyramid_field) ich noch nicht gegessen habe.
+      - Zeige mir an wie viel [Fisch](pyramid_field) ich noch nicht gegessen habe.
+      - Zeige mir an wie viel [Ei](pyramid_field) ich noch nicht gegessen habe.
+      - Zeige mir an wie viel [Hülsenfrüchte](pyramid_field) ich noch nicht gegessen habe.
+      - Zeige mir an wie viel [Steak](pyramid_field) ich noch nicht gegessen habe.
+      - Zeige mir an wie viel [Hühnchen](pyramid_field) ich noch nicht gegessen habe.
+      - Zeige mir an wie viel [Hackfleisch](pyramid_field) ich noch nicht gegessen habe.
+      - Habe ich heute schon eine Portion [Wurstaufschnitt](pyramid_field) gegessen?
+      - Habe ich heute schon eine Portion [Leberwurst](pyramid_field) gegessen?
+      - Habe ich heute schon eine Portion [Mettwurst](pyramid_field) gegessen?
+      - Habe ich heute schon eine Portion [Teewurst](pyramid_field) gegessen?
+      - Habe ich heute schon eine Portion [Mortadella](pyramid_field) gegessen?
+      - Habe ich heute schon eine Portion [Schinken](pyramid_field) gegessen?
+      - Habe ich heute schon eine Portion [Putenbrust](pyramid_field) gegessen?
+      - Habe ich heute schon eine Portion [Lachs](pyramid_field) gegessen?
+      - Habe ich heute schon eine Portion [Makrele](pyramid_field) gegessen?
+      - Habe ich heute schon eine Portion [Hering](pyramid_field) gegessen?
+      - Habe ich heute schon eine Portion [Thunfisch](pyramid_field) gegessen?
+      - Habe ich heute schon eine Portion [Eier](pyramid_field) gegessen?
+      - Habe ich heute schon eine Portion [Kichererbsen](pyramid_field) gegessen?
+      - Habe ich heute schon eine Portion [Linsen](pyramid_field) gegessen?
+      - Habe ich heute schon eine Portion [Belugalinsen](pyramid_field) gegessen?
+      - Habe ich heute schon eine Portion [rote Linsen](pyramid_field) gegessen?
+      - wie viel [vegane Wurst](pyramid_field) hatte ich letzten Freitag noch übrig?
+      - wie viel [Burgerpatties](pyramid_field) hatte ich letzten Freitag noch übrig?
+      - wie viel [vegane Burgerpatties](pyramid_field) hatte ich letzten Freitag noch übrig?
+      - wie viel [Lammfilet](pyramid_field) hatte ich letzten Freitag noch übrig?
+      - wie viel [Schweinenacken](pyramid_field) hatte ich letzten Freitag noch übrig?
+      - wie viel [Rinderfilet](pyramid_field) hatte ich letzten Freitag noch übrig?
+      - wie viel [Rumpsteak](pyramid_field) hatte ich letzten Freitag noch übrig?
+      - gib mir einen Überblick über die Menge an [Fett](pyramid_field) die ich heute noch essen kann.
+      - gib mir einen Überblick über die Menge an [Butter](pyramid_field) die ich heute noch essen kann.
+      - gib mir einen Überblick über die Menge an [Magarine](pyramid_field) die ich heute noch essen kann.
+      - gib mir einen Überblick über die Menge an [Kokosöl](pyramid_field) die ich heute noch essen kann.
+      - gib mir einen Überblick über die Menge an [Schmalz](pyramid_field) die ich heute noch essen kann.
+      - gib mir einen Überblick über die Menge an [Griebenschmalz](pyramid_field) die ich heute noch essen kann.
+      - gib mir einen Überblick über die Menge an [Erdnussbutter](pyramid_field) die ich heute noch essen kann.
+      - gib mir einen Überblick über die Menge an [Mandelbutter](pyramid_field) die ich heute noch essen kann.
+      - gib mir einen Überblick über die Menge an [Cashewbutter](pyramid_field) die ich heute noch essen kann.
+      - gib mir einen Überblick über die Menge an [Öl](pyramid_field) die ich heute noch essen kann.
+      - gib mir einen Überblick über die Menge an [Olivenöl](pyramid_field) die ich heute noch essen kann.
+      - gib mir einen Überblick über die Menge an [Sonnenblumenöl](pyramid_field) die ich heute noch essen kann.
+      - gib mir einen Überblick über die Menge an [Rapsöl](pyramid_field) die ich heute noch essen kann.
+      - gib mir einen Überblick über die Menge an [Leinöl](pyramid_field) die ich heute noch essen kann.
+      - zeige mir wie viele Felder [Walnussöl](pyramid_field) ich schon eingetragen habe
+      - zeige mir wie viele Felder [Sesamöl](pyramid_field) ich schon eingetragen habe
+      - zeige mir wie viele Felder [Erdnussöl](pyramid_field) ich schon eingetragen habe
+      - zeige mir wie viele Felder [Avocadoöl](pyramid_field) ich schon eingetragen habe
+      - zeige mir wie viele Felder [Maiskeimöl](pyramid_field) ich schon eingetragen habe
+      - zeige mir wie viele Felder [Mazola Öl](pyramid_field) ich schon eingetragen habe
+      - zeige mir wie viele Felder [Bratspray](pyramid_field) ich schon eingetragen habe
+      - habe ich noch Portionen an [Extras](pyramid_field) frei?
+      - habe ich noch Portionen an [Schokolade](pyramid_field) frei?
+      - habe ich noch Portionen an [Gummibärchen](pyramid_field) frei?
+      - habe ich noch Portionen an [Eis](pyramid_field) frei?
+      - habe ich noch Portionen an [Chips](pyramid_field) frei?
+      - habe ich noch Portionen an [Süßigkeiten](pyramid_field) frei?
+      - wie viele Portionen [Extras](pyramid_field) sind noch frei?
+      - wie viele Portionen [Schokolade](pyramid_field) sind noch frei?
+      - wie viele Portionen [Gummibärchen](pyramid_field) sind noch frei?
+      - wie viele Portionen [Eis](pyramid_field) sind noch frei?
+      - wie viele Portionen [Chips](pyramid_field) sind noch frei?
+      - wie viele Portionen [Süßigkeiten](pyramid_field) sind noch frei?
+      - habe ich heute genug [Cola](pyramid_field) zu mir genommen?
+      - habe ich heute genug [Fanta](pyramid_field) zu mir genommen?
+      - habe ich heute genug [Sprite](pyramid_field) zu mir genommen?
+      - habe ich heute genug [Limo](pyramid_field) zu mir genommen?
+      - habe ich heute genug [Limonade](pyramid_field) zu mir genommen?
+      - habe ich heute genug [Kuchen](pyramid_field) zu mir genommen?
+      - habe ich heute genug [Torte](pyramid_field) zu mir genommen?
+      - habe ich heute genug [Kekse](pyramid_field) zu mir genommen?
+      - habe ich heute genug [Pommes](pyramid_field) zu mir genommen?
+      - habe ich heute genug [Pommes Frittes](pyramid_field) zu mir genommen?
+      - habe ich heute genug [Wein](pyramid_field) zu mir genommen?
+      - habe ich heute genug [Bier](pyramid_field) zu mir genommen?
+      - habe ich heute zu viel [Schnaps](pyramid_field) gegessen?
+      - habe ich heute zu viel [Rotwein](pyramid_field) gegessen?
+      - habe ich heute zu viel [Weißwein](pyramid_field) gegessen?
+      - habe ich heute zu viel [Whisky](pyramid_field) gegessen?
+      - habe ich heute zu viel [Whiskey](pyramid_field) gegessen?
+      - habe ich heute zu viel Portion [RedBull](pyramid_field) gegessen?
+      - habe ich heute zu viel [Vodka](pyramid_field) gegessen?
+      - habe ich heute zu viel [Gustl](pyramid_field) gegessen?
+      - habe ich heute zu viel Portion [Augustiner](pyramid_field) gegessen?
+      - habe ich heute zu viel [Erdnüsse](pyramid_field) gegessen?
+      - Wie viele Felder von [NicNacs](pyramid_field) sind heute schon farbig?
+      - Wie viele Felder von [Studentenfutter](pyramid_field) sind heute schon farbig?
+      - Wie viele Felder von [Schoki](pyramid_field) sind heute schon farbig?
+      - Wie viele Felder von [Schokoriegel](pyramid_field) sind heute schon farbig?
+      - Wie viele Felder von [Snickers](pyramid_field) sind heute schon farbig?
+      - Wie viel [NicNacs](pyramid_field) habe ich gegessen?
+      - Wie viel [Studentenfutter](pyramid_field) habe ich gegessen?
+      - Wie viel [Schoki](pyramid_field) habe ich gegessen?
+      - Wie viel [Schokoriegel](pyramid_field) habe ich gegessen?
+      - Wie viel [Snickers](pyramid_field) habe ich gegessen?
+      - wie viel [Kaffe](pyramid_field) kann ich heute noch essen?
+      - wie viel [Kafee](pyramid_field) kann ich heute noch essen?
+      - wie viel [Kafe](pyramid_field) kann ich heute noch essen?
+      - wie viel [Expresso](pyramid_field) kann ich heute noch essen?
+      - wie viel [Clementine](pyramid_field) kann ich heute noch essen?
+      - wie viel [Mango](pyramid_field) kann ich heute noch essen?
+      - wie viel [Mangos](pyramid_field) kann ich heute noch essen?
+      - wie viel [Papaya](pyramid_field) kann ich heute noch essen?
+      - wie viel [Grapefruit](pyramid_field) kann ich heute noch essen?
+      - wie viel [Pomelo](pyramid_field) kann ich heute noch essen?
+      - wie viel [Passionsfrucht](pyramid_field) kann ich heute noch essen?
+      - wie viel [Maracuja](pyramid_field) kann ich heute noch essen?
+      - wie viel [Rüben](pyramid_field) kann ich heute noch essen?
+      - wie viel [schwarze Linsen](pyramid_field) kann ich heute noch essen?
+      - wie viel [Kirschtomate](pyramid_field) kann ich heute noch essen?
+      - wie viel [Kirschtomaten](pyramid_field) kann ich heute noch essen?
+      - wie viel [Chili](pyramid_field) kann ich heute noch essen?
+      - wie viel [Peperoni](pyramid_field) kann ich heute noch essen?
+      - wie viel [Rotkohl](pyramid_field) kann ich heute noch essen?
+      - wie viel [Blaukraut](pyramid_field) kann ich heute noch essen?
+      - wie viel [Eisbergsalat](pyramid_field) kann ich heute noch essen?
+      - wie viel [Romasalat](pyramid_field) kann ich heute noch essen?
+      - wie viel [Roma Salat](pyramid_field) kann ich heute noch essen?
+      - wie viel [Salatherz](pyramid_field) kann ich heute noch essen?
+      - wie viel [Salatherzen](pyramid_field) kann ich heute noch essen?
+      - wie viel [Austernpilz](pyramid_field) kann ich heute noch essen?
+      - wie viel [Austernpilze](pyramid_field) kann ich heute noch essen?
+      - wie viel [Champignon](pyramid_field) kann ich heute noch essen?
+      - wie viel [Champignons](pyramid_field) kann ich heute noch essen?
+      - wie viel [Kräuterseitling](pyramid_field) kann ich heute noch essen?
+      - wie viel [Kräuterseitlinge](pyramid_field) kann ich heute noch essen?
+      - wie viel [Prizessbohnen](pyramid_field) kann ich heute noch essen?
+      - wie viel [grüne Bohnen](pyramid_field) kann ich heute noch essen? 
+      - wie viel [Brechbohnen](pyramid_field) kann ich heute noch essen?
+      - wie viel [Müsli](pyramid_field) kann ich heute noch essen?
+      - wie viel [Cornflakes](pyramid_field) kann ich heute noch essen?
+      - wie viel [Rice Crispies](pyramid_field) kann ich heute noch essen? 
+      - wie viel [Puffreis](pyramid_field) kann ich heute noch essen?
+      - wie viel [Basismüsli](pyramid_field) kann ich heute noch essen?
+      - wie viel [Frühstücksflocken](pyramid_field) kann ich heute noch essen?
+      - wie viel [Kölln Flocken](pyramid_field) kann ich heute noch essen?
+      - wie viel [Dinkelflocken](pyramid_field) kann ich heute noch essen?
+      - wie viel [Früchtemüsli](pyramid_field) kann ich heute noch essen?
+      - wie viel [Knuspermüsli](pyramid_field) kann ich heute noch essen?
+      - wie viel [Bergsteigermüsli](pyramid_field) kann ich heute noch essen?
+      - wie viel [Amarant](pyramid_field) kann ich heute noch essen?
+      - wie viel [Bulgur](pyramid_field) kann ich heute noch essen?
+      - wie viel [Tortilla](pyramid_field) kann ich heute noch essen?
+      - wie viel [Knäckebrot](pyramid_field) kann ich heute noch essen?
+      - wie viel [Cracker](pyramid_field) kann ich heute noch essen?
+      - wie viel [Seitenbacher Bergsteigermüsli](pyramid_field) kann ich heute noch essen?
+      - wie viel [MyMuesli](pyramid_field) kann ich heute noch essen?
+      - wie viel [Toast](pyramid_field) kann ich heute noch essen?
+      - wie viel [Toastbrot](pyramid_field) kann ich heute noch essen?
+      - wie viel [Semmel](pyramid_field) kann ich heute noch essen?
+      - wie viel [Semmeln](pyramid_field) kann ich heute noch essen?
+      - wie viel [Brötchen](pyramid_field) kann ich heute noch essen?
+      - wie viel [Kornspitz](pyramid_field) kann ich heute noch essen?
+      - wie viel [Breze](pyramid_field) kann ich heute noch essen?
+      - wie viel [Bauernbrot](pyramid_field) kann ich heute noch essen?
+      - wie viel [Roggenbrot](pyramid_field) kann ich heute noch essen?
+      - wie viel [Kochsahne](pyramid_field) kann ich heute noch essen?
+      - wie viel [Topfen](pyramid_field) kann ich heute noch essen?
+      - wie viel [Maskarpone](pyramid_field) kann ich heute noch essen?
+      - wie viel [griechischer Joghurt](pyramid_field) kann ich heute noch essen?
+      - wie viel [Jogurt](pyramid_field) kann ich heute noch essen?
+      - wie viel [Jogurth](pyramid_field) kann ich heute noch essen?
+      - wie viel [Kaffesahne](pyramid_field) kann ich heute noch essen?
+      - wie viel [Kaffeesahne](pyramid_field) kann ich heute noch essen?
+      - wie viel [Bergkäse](pyramid_field) kann ich heute noch essen?
+      - wie viel [Brie](pyramid_field) kann ich heute noch essen?
+      - wie viel [Camenbert](pyramid_field) kann ich heute noch essen?
+      - wie viel [Gouda](pyramid_field) kann ich heute noch essen?
+      - wie viel [Cheddar](pyramid_field) kann ich heute noch essen?
+      - wie viel [Kefir](pyramid_field) kann ich heute noch essen?
+      - wie viel [Buttermilch](pyramid_field) kann ich heute noch essen?
+      - wie viel [Quäse](pyramid_field) kann ich heute noch essen?
+      - wie viel [Harzer Roller](pyramid_field) kann ich heute noch essen?
+      - wie viel [Racelette](pyramid_field) kann ich heute noch essen?
+      - wie viel [Raclette](pyramid_field) kann ich heute noch essen?
+      - wie viel [Raclett](pyramid_field) kann ich heute noch essen?
+      - wie viel [Käsefondue](pyramid_field) kann ich heute noch essen?
+      - wie viel [Hähnchen](pyramid_field) kann ich heute noch essen?
+      - wie viel [Forelle](pyramid_field) kann ich heute noch essen?
+      - wie viel [Geschnetzeltes](pyramid_field) kann ich heute noch essen?
+      - wie viel [Tartar](pyramid_field) kann ich heute noch essen?
+      - wie viel [Carpaccio](pyramid_field) kann ich heute noch essen?
+      - wie viel [T-Bone Steak](pyramid_field) kann ich heute noch essen?
+      - wie viel [Burger](pyramid_field) kann ich heute noch essen?
+      - wie viel [Salami](pyramid_field) kann ich heute noch essen?
+      - wie viel [Pastete](pyramid_field) kann ich heute noch essen?
+      - wie viel [Leberpastete](pyramid_field) kann ich heute noch essen?
+      - wie viel [Sülze](pyramid_field) kann ich heute noch essen?
+      - wie viel [Bratensülze](pyramid_field) kann ich heute noch essen?
+      - wie viel [Ente](pyramid_field) kann ich heute noch essen?
+      - wie viel [Gans](pyramid_field) kann ich heute noch essen?
+      - wie viel [Fondue](pyramid_field) kann ich heute noch essen?
+      - wie viel [BBQ](pyramid_field) kann ich heute noch essen?
+      - wie viel [Pistazienbutter](pyramid_field) kann ich heute noch essen?
+      - wie viel [Buter](pyramid_field) kann ich heute noch essen?
+      - wie viel [Magarine](pyramid_field) kann ich heute noch essen?
+      - wie viel [Frittierfett](pyramid_field) kann ich heute noch essen?
+      - wie viel [Kokosfett](pyramid_field) kann ich heute noch essen?
+      - wie viel [Palmfett](pyramid_field) kann ich heute noch essen?
+      - wie viel [Palmöl](pyramid_field) kann ich heute noch essen?
+      - wie viel [Hanföl](pyramid_field) kann ich heute noch essen?
+      - wie viel [Süßes](pyramid_field) kann ich heute noch essen?
+      - wie viel [Knabberzeug](pyramid_field) kann ich heute noch essen?
+      - wie viel [Knabberreien](pyramid_field) kann ich heute noch essen?
+      - hat meine pyramide noch platz für [Cookie](pyramid_field)?
+      - hat meine pyramide noch platz für [Keks](pyramid_field)?
+      - hat meine pyramide noch platz für [Kekse](pyramid_field)?
+      - hat meine pyramide noch platz für [Glückskeks](pyramid_field)?
+      - hat meine pyramide noch platz für [Glückskekse](pyramid_field)?
+      - hat meine pyramide noch platz für [Ramazotti](pyramid_field)?
+      - hat meine pyramide noch platz für [Cantuccini](pyramid_field)?
+      - hat meine pyramide noch platz für [Schokokeks](pyramid_field)?
+      - hat meine pyramide noch platz für [Nimm2](pyramid_field)?
+      - hat meine pyramide noch platz für [Nimm2 Soft](pyramid_field)?
+      - hat meine pyramide noch platz für [Maoam](pyramid_field)?
+      - hat meine pyramide noch platz für [Duplo](pyramid_field)?
+      - hat meine pyramide noch platz für [Hanuta](pyramid_field)?
+      - hat meine pyramide noch platz für [Manner Waffeln](pyramid_field)?
+      - hat meine pyramide noch platz für [Manner Schnitten](pyramid_field)?
+      - hat meine pyramide noch platz für [Snickers](pyramid_field)?
+      - hat meine pyramide noch platz für [Mars](pyramid_field)?
+      - hat meine pyramide noch platz für [Twix](pyramid_field)?
+      - hat meine pyramide noch platz für [Linkes Twix](pyramid_field)?
+      - hat meine pyramide noch platz für [Rechtes Twix](pyramid_field)?
+      - hat meine pyramide noch platz für das [Linke Twix](pyramid_field)?
+      - hat meine pyramide noch platz für das [Rechte Twix](pyramid_field)?
+      - Für wie viel [Äpfel](pyramid_field) hat meine Pyramide heute noch Platz frei!
+      - Für wie viel [Bananen](pyramid_field) hat meine Pyramide heute noch Platz frei!
+      - Für wie viel [Birnen](pyramid_field) hat meine Pyramide heute noch Platz frei!
+      - Für wie viel [Nektarinen](pyramid_field) hat meine Pyramide heute noch Platz frei!
+      - Für wie viel [Pflaumen](pyramid_field) hat meine Pyramide heute noch Platz frei!
+      - Für wie viel [Orangen](pyramid_field) hat meine Pyramide heute noch Platz frei!
+      - Für wie viel [Nüsse](pyramid_field) hat meine Pyramide heute noch Platz frei!
+      - Für wie viel [Walnüsse](pyramid_field) hat meine Pyramide heute noch Platz frei!
+      - Für wie viel [Wassermelone](pyramid_field) hat meine Pyramide heute noch Platz frei!
+      - Für wie viel [Melone](pyramid_field) hat meine Pyramide heute noch Platz frei!
+      - Für wie viel [Saft](pyramid_field) hat meine Pyramide heute noch Platz frei!
+      - Für wie viel [Fruchtsaft](pyramid_field) hat meine Pyramide heute noch Platz frei!
+      - Für wie viel [Orangensaft](pyramid_field) hat meine Pyramide heute noch Platz frei!
+      - Für wie viel [Apfelsaft](pyramid_field) hat meine Pyramide heute noch Platz frei!
+      - Für wie viel [Traubensaft](pyramid_field) hat meine Pyramide heute noch Platz frei!
+      - Für wie viel [Gurken](pyramid_field) hat meine Pyramide heute noch Platz frei!
+      - Für wie viel [Karotten](pyramid_field) hat meine Pyramide heute noch Platz frei!
+      - Für wie viel [KH](pyramid_field) hat meine Pyramide heute noch Platz frei!
+      - Für wie viel [KHs](pyramid_field) hat meine Pyramide heute noch Platz frei!
+      - Für wie viel [beilage](pyramid_field) hat meine Pyramide heute noch Platz frei!
+      - Für wie viel [Kartoffel](pyramid_field) hat meine Pyramide heute noch Platz frei!
+      - Für wie viel [Baguette](pyramid_field) hat meine Pyramide heute noch Platz frei!
+      - Für wie viel [Tofu](pyramid_field) hat meine Pyramide heute noch Platz frei!
+      - Für wie viel [Margarine](pyramid_field) hat meine Pyramide heute noch Platz frei!
+      - Für wie viel [fleisch](pyramid_field) hat meine Pyramide heute noch Platz frei!
+      - Für wie viel [fisch](pyramid_field) hat meine Pyramide heute noch Platz frei!
+      - Für wie viel [öl](pyramid_field) hat meine Pyramide heute noch Platz frei!

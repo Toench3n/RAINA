@@ -1,0 +1,159 @@
+# in this file the questions RAINA can answer are being implemented according to the notation given by Rasa to handle
+# FAQs: https://rasa.com/docs/rasa/2.x/chitchat-faqs
+
+version: "2.0"
+
+nlu:
+
+  - intent: faq/ask_abilities
+    examples: |
+      - was kannst du denn?
+      - wie kannst du mir helfen?
+      - was kannst du alles machen?
+      - was sind deine Funktionen?
+      - gib mir eine List alle Funktionen
+      - liste mir alle deine Funktionen auf
+      - was kann ich alles machen?
+      - wie benutze ich dich?
+      - wie kannst du mir helfen?
+      - was kannst du eigentlich?
+      - kannst du noch mehr?
+      - was ist der sinn hinter dir?
+      - wie können wir zusammen arbeiten?
+      - ich brauche hilfe
+      - ich weiß nicht was ich machen soll
+      - wie kann ich dich nutzen?
+
+  - intent: faq/ask_sources
+    examples: |
+      - was sind deine Quellen?
+      - worauf basieren deine Informationen?
+      - woher weißt du das alles?
+      - kann ich das alles noch einmal nachlesen?
+      - wo finde ich Informationen zur Pyramide
+      - ich verstehe die Pyramide nicht
+      - ich verstehe die Portionsgrößen nicht
+      - bring mich zum BZFE
+      - zeige mir die Internetseiten noch einmal
+      - liste mir alle links
+      - ich will noch mehr Informationen lesen
+      - wie groß sind die portionen
+      - wie groß ist eine portion
+      - ich brauche noch mehr informationen
+      - ich brauche noch einmal die internetseiten
+      - wie benutze ich die pyramide?
+      - ich habe das alles nicht verstanden
+      - hä?
+      - hääää?
+      - ich bin lost
+
+  - intent: faq/ask_check_in_times
+    examples: |
+      - wann bekomme ich nachrichten von dir?
+      - warum schreibst du mich an?
+      - wieso schreibst du mir?
+      - wann schreibst du mir?
+      - kann ich die zeiten ändern?
+      - zu welcher Uhrzeit schreibst du mir?
+      - wann kommen die Check-Ins?
+      - wann kommen die Quizzes?
+      - wann kommen die Fragen?
+      - wann sendest du mir Nachrichten?
+      - wann bekomme ich quizzes von dir?
+
+  - intent: faq/ask_how_to_add_portions
+    examples: |
+      - wie kann ich Essen hinzufügen?
+      - wie kann ich essen abziehen?
+      - wie fülle ich meine Pyramide auf?
+      - wie füge ich eine portion hinzu?
+      - wie ziehe ich eine Portion ab?
+      - wie male ich felder an?
+      - wie trage ich sachen ein?
+      - wie ziehe ich sachen ab?
+      - was soll ich machen wenn ich was gegessen habe?
+      - ich habe zu viel eingetragen
+      - das wollte ich nicht eintragen
+
+  - intent: faq/ask_how_to_see_pyramid
+    examples: |
+      - wie kann ich meine Pyramide sehen?
+      - kann ich auch Pyramide aus der Vergangenheit sehen?
+      - wie lasse ich mir eine durchschnittliche Pyramide anzeigen?
+      - wie kann ich dir sagen, dass ich meine Pyramide sehen will?
+      - wie kann ich sehen, was ich schon alles gegessen habe?
+      - wie schickst du mir meine Pyramide?
+      - wie bekomme ich das Pyramiden Bild
+      - wie bekomme ich das Bild?
+      - wie kannst du mir ein Foto schicken?
+      - wie kann ich die Pyramide einsehen?
+
+  - intent: faq/ask_field_names
+    examples: |
+      - wie heißen die Felder der Pyramide?
+      - warum verstehst du nicht was ich einfügen will
+      - wie heißt das Feld
+      - wie heißen die Portionen
+      - wie nennst du die Felder der Pyramide?
+      - wie verstehst du was ich gegessen habe?
+      - was muss ich schreiben, damit du meine Portionen verstehst
+      - wie heißen die Portionen der Pyramide?
+      - wie heißen die Lebensmittelgruppen?
+      - wie heißen die gruppen?
+      - was muss ich schreiben um wasser einzutragen
+      - was kennst du denn?
+      - welche felder kennst du denn?
+      - wie soll ich es denn formulieren?
+      - welcher Felder der Pyramide kennst du denn?
+      - ich will wissen wie die Felder heißen
+      - sag mir die Felder der Pyramide
+      - sag mir wie die Lebensmittelgruppen heißen
+      - gib mir die Liste aller Lebensmittelgruppen
+      - Liste der Feldernamen
+      - wie heißen die Pyramidenfelder?
+      - wie nennst du die Lebensmittelgruppen?
+      - welche Felder gibt es?
+      - welche Lebensmittelgruppen gibt es?
+
+  # those are examples users tried when testing an early version, but RAINA has not the ability to
+  - intent: faq/ask_to_add_whole_dish
+    examples: |
+      - Ich hab eine Portion Fast Food gegessen
+      - Ich habe eine Pizza gegessen
+      - Füge eine Pizza hinzu
+      - Ich habe einen Döner gegessen
+      - Füge einen Döner hinzu
+      - Ich habe ein Dürüm gegessen
+      - Füge ein Dürüm hinzu
+      - Ich habe einen Burger gegessen
+      - Füge einen Burger hinzu
+      - Ich habe eine Lasagne gegessen
+      - Füge eine Lasagne hinzu
+      - Ich habe einen Eintopf gegessen
+      - Füge einen Eintopf hinzu
+      - Ich habe eine Flasche Öl getrunken
+      - Ich hatte gerade eine Portion Spaghetti Bolognese
+      - Ich habe eine Leberkassemmel gegessen
+      - Füge eine Leberkassemmel hinzu
+      - Ich habe eine Käsesemmel gegessen
+      - Füge eine Käsesemmel hinzu
+      - Ich habe eine Nudeln mit Tomatensoße gegessen
+      - Füge eine Nudeln mit Tomatensoße hinzu
+      - Ich habe eine Nudelsalat gegessen
+      - Füge eine Nudelsalat hinzu
+      
+
+  - intent: faq/ask_how_to_change_portion
+    examples: |
+      - doch kein apfel sondern eine Banene
+      - kein obst sondern gemüse
+      - tausche ein Öl gegen ein Fett
+      - bitte ersetze Wasser durch Saft
+      - änder Wasser zu Obst
+      - ändere Gemüse zu Extras
+      - ändere das Feld zu Obst
+      - ich will zwei felder tauschen
+      - kannst du das austauschen?
+      - ich will doch etwas anderen einfügen
+      - nein, das war falsch
+      - bitte ersetze das Fleisch durch Nudeln

@@ -1,0 +1,194 @@
+# in this file the questions RAINA can answer are being implemented according to the notation given by Rasa to handle
+# FAQs: https://rasa.com/docs/rasa/2.x/chitchat-faqs
+
+version: "2.0"
+
+nlu:
+
+  - intent: faq/ask_water_portion_size
+    examples: |
+      - Wie groß ist eine Portion Wasser?
+      - Was ist eine Portion Wasser?
+      - Woher weiß ich wie viel eine Portion Wasser ist?
+      - Wie groß ist eine Portion Getränke?
+      - Was ist eine Portion Getränke?
+      - Woher weiß ich wie viel eine Portion Getränke ist?
+      - Wie viel Wasser ist eine Portion?
+      - Wie viel ml ist eine Portion Getränke?
+      - Wie groß sind die Portionen an Wasser
+      - Wie groß ist eine Portion Sprudelwasser?
+      - Wie groß ist eine Portion Tee?
+      - Wie groß ist eine Portion Kaffee?
+      - Wie groß ist eine Portion Früchtetee?
+      - Wie viel Sprudelwasser ist eine Portion?
+      - Wie viel Tee ist eine Portion?
+      - Wie viel Kaffee ist eine Portion?
+      - Wie viel Früchtetee ist eine Portion?
+
+  - intent: faq/ask_fruits_portion_size
+    examples: |
+      - Wie groß ist eine Portion Obst?
+      - Was ist eine Portion Obst?
+      - Woher weiß ich wie viel eine Portion Obst ist?
+      - Wie groß ist eine Portion Früchte?
+      - Was ist eine Portion Früchte?
+      - Woher weiß ich wie viel eine Portion Früchte ist?
+      - Wie viel Obst ist eine Portion?
+      - Wie viel gramm sind eine Portion Früchte?
+      - Wie groß sind die Portionen an Obst
+      - Wie groß ist eine Portion Apfel?
+      - Wie groß ist eine Portion Banane?
+      - Wie groß ist eine Portion Nüsse?
+      - Wie groß ist eine Portion Orangensaft?
+      - Wie viel Apfel ist eine Portion?
+      - Wie viel Banane ist eine Portion?
+      - Wie viel Nüsse ist eine Portion?
+      - Wie viel Orangensaft ist eine Portion?
+
+  - intent: faq/ask_vegetables_portion_size
+    examples: |
+      - Wie groß ist eine Portion Gemüse?
+      - Was ist eine Portion Gemüse?
+      - Woher weiß ich wie viel eine Portion Gemüse ist?
+      - Wie groß ist eine Portion Rohkost?
+      - Was ist eine Portion Rohkost?
+      - Woher weiß ich wie viel eine Portion Rohkost ist?
+      - Wie viel Gemüse ist eine Portion?
+      - Wie viel gramm sind ist eine Portion Rohkost?
+      - Wie groß sind die Portionen an Gemüse
+      - Wie groß ist eine Portion Gurke?
+      - Wie groß ist eine Portion Tomate?
+      - Wie groß ist eine Portion Salat?
+      - Wie groß ist eine Portion Paprika?
+      - Wie viel Gurke ist eine Portion?
+      - Wie viel Tomate ist eine Portion?
+      - Wie viel Salat ist eine Portion?
+      - Wie viel Paprika ist eine Portion?
+
+  - intent: faq/ask_carbohydrates_portion_size
+    examples: |
+      - Wie groß ist eine Portion Kohlenhydrate?
+      - Was ist eine Portion Kohlenhydrate?
+      - Woher weiß ich wie viel eine Portion Kohlenhydrate ist?
+      - Wie groß ist eine Portion Beilagen?
+      - Was ist eine Portion Beilagen?
+      - Woher weiß ich wie viel eine Portion Beilagen ist?
+      - Wie viel Kohlenhydrate ist eine Portion?
+      - Wie viel gramm sind ist eine Portion Beilagen?
+      - Wie groß ist eine Portion Brot?
+      - Was ist eine Portion Brot?
+      - Woher weiß ich wie viel eine Portion Brot ist?
+      - Wie groß ist eine Portion Reis?
+      - Was ist eine Portion Reis?
+      - Woher weiß ich wie viel eine Portion Reis ist?
+      - Wie groß ist eine Portion Nudeln?
+      - Was ist eine Portion Nudeln?
+      - Woher weiß ich wie viel eine Portion Nudeln ist?
+      - Wie groß sind die Portionen an Beilagen
+      - Wie groß sind die Portionen an Kohlenhydraten
+      - Wie groß ist eine Portion Reis?
+      - Wie groß ist eine Portion Nudeln?
+      - Wie groß ist eine Portion Kartoffeln?
+      - Wie groß ist eine Portion Brot?
+      - Wie viel Reis ist eine Portion?
+      - Wie viel Nudeln ist eine Portion?
+      - Wie viel Kartoffeln ist eine Portion?
+      - Wie viel Brot ist eine Portion?
+
+  - intent: faq/ask_milk_produkts_portion_size
+    examples: |
+      - Wie groß ist eine Portion Milchprodukte?
+      - Was ist eine Portion Milchprodukte?
+      - Woher weiß ich wie viel eine Portion Milchprodukte ist?
+      - Wie groß ist eine Portion Milch?
+      - Was ist eine Portion Milch?
+      - Woher weiß ich wie viel eine Portion Milch ist?
+      - Wie viel Milchprodukte ist eine Portion?
+      - Wie viel gramm sind ist eine Portion Milch?
+      - Wie groß sind die Portionen an Milchprodukten
+      - Wie groß ist eine Portion Milch?
+      - Wie groß ist eine Portion Joghurt?
+      - Wie groß ist eine Portion Käse?
+      - Wie groß ist eine Portion Quark?
+      - Wie viel Milch ist eine Portion?
+      - Wie viel Joghurt ist eine Portion?
+      - Wie viel Käse ist eine Portion?
+      - Wie viel Quark ist eine Portion?
+
+  - intent: faq/ask_meat_portion_size
+    examples: |
+      - Wie groß ist eine Portion Fleisch?
+      - Was ist eine Portion Fleisch?
+      - Woher weiß ich wie viel eine Portion Fleisch ist?
+      - Wie groß ist eine Portion Fisch?
+      - Was ist eine Portion Fisch?
+      - Woher weiß ich wie viel eine Portion Fisch ist?
+      - Wie viel Fleisch ist eine Portion?
+      - Wie viel gramm sind ist eine Portion Fisch?
+      - Wie groß sind die Portionen an Fleisch
+      - Wie groß sind die Portionen an Fisch
+      - Wie groß ist eine Portion Fleisch?
+      - Wie groß ist eine Portion Fisch?
+      - Wie groß ist eine Portion Steak?
+      - Wie groß ist eine Portion Hühnchen?
+      - Wie viel Fleisch ist eine Portion?
+      - Wie viel Fisch ist eine Portion?
+      - Wie viel Steak ist eine Portion?
+      - Wie viel Hühnchen ist eine Portion?
+
+  - intent: faq/ask_oil_portion_size
+    examples: |
+      - Wie groß ist eine Portion Öl?
+      - Was ist eine Portion Öl?
+      - Woher weiß ich wie viel eine Portion Öl ist?
+      - Wie viel Öl ist eine Portion?
+      - Wie viel ml sind eine Portion Öl
+      - Wie groß sind die Portionen an Öl
+      - Wie groß ist eine Portion Öl?
+      - Wie groß ist eine Portion Olivenöl?
+      - Wie groß ist eine Portion Walnussöl?
+      - Wie groß ist eine Portion Leinöl?
+      - Wie viel Öl ist eine Portion?
+      - Wie viel Olivenöl ist eine Portion?
+      - Wie viel Walnussöl ist eine Portion?
+      - Wie viel Leinöl ist eine Portion?
+
+  - intent: faq/ask_fat_portion_size
+    examples: |
+      - Wie groß ist eine Portion Fett?
+      - Was ist eine Portion Fett?
+      - Woher weiß ich wie viel eine Portion Fett ist?
+      - Wie viel Fett ist eine Portion?
+      - Wie viel ml sind eine Portion Fett
+      - Wie groß sind die Portionen an Fett
+      - Wie groß ist eine Portion Butter?
+      - Wie groß ist eine Portion Margarine?
+      - Wie groß ist eine Portion Kokosfett?
+      - Wie groß ist eine Portion Schmalz?
+      - Wie viel Butter ist eine Portion?
+      - Wie viel Margarine ist eine Portion?
+      - Wie viel Kokosfett ist eine Portion?
+      - Wie viel Schmalz ist eine Portion?
+
+  - intent: faq/ask_extras_portion_size
+    examples: |
+      - Wie groß ist eine Portion Extras?
+      - Was ist eine Portion Extras?
+      - Woher weiß ich wie viel eine Portion Extras ist?
+      - Wie groß ist eine Portion Süßigkeiten?
+      - Was ist eine Portion Süßigkeiten?
+      - Woher weiß ich wie viel eine Portion Süßigkeiten ist?
+      - Wie viel Extras ist eine Portion?
+      - Wie viel gramm sind ist eine Portion Süßigkeiten?
+      - Wie groß ist eine Portion Chips?
+      - Was ist eine Portion Chips?
+      - Woher weiß ich wie viel eine Portion Chips ist?
+      - Wie groß sind die Portionen an Extras
+      - Wie groß ist eine Portion Schokolade?
+      - Wie groß ist eine Portion Extras?
+      - Wie groß ist eine Portion Süßes?
+      - Wie groß ist eine Portion Gummibärchen?
+      - Wie viel Schokolade ist eine Portion?
+      - Wie viel Extras ist eine Portion?
+      - Wie viel Süßes ist eine Portion?
+      - Wie viel Gummibärchen ist eine Portion?

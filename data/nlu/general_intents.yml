@@ -1,0 +1,161 @@
+# in this file general intends are specified like greeting and affirming
+version: "2.0"
+
+nlu:
+# Used to start a conversation via telegram
+  - intent: start
+    examples: |
+      - start
+      - Ich möchte von vorne anfangen
+      - neustart
+      - bitte neu starten
+      - bitte noch einmal von vorne
+      - bitte noch einmal das tutorial
+
+
+  - intent: greet
+    examples: |
+      - hi
+      - hallo
+      - moin
+      - guten tag
+      - guten abend
+      - moinsen
+      - hiiiiii
+      - hey
+      - servus
+      - guten Morgen RAINA
+
+  - intent: goodbye
+    examples: |
+      - tschüss
+      - ciao
+      - bye
+      - bis bald
+      - bis nächstes mal
+      - bis morgen
+      - bis irgenwann
+      - tschau
+      - schönen Abend noch
+      - schönen Tag noch
+
+  - intent: affirm
+    examples: |
+      - ja
+      - Jo
+      - yes
+      - genau
+      - natürlich
+      - das kling gut
+      - das klingt super
+      - so habe ich mir das vorgestellt
+      - korrekt
+      - ja, danke
+      - das habe ich verstanden
+      - ja, das ist klar
+      - ok
+      - das war verständlich
+      - wieder was gelernt
+      - das ist einfach
+      - ja das checke ich
+      - das habe ich gecheckt
+      - Ich glaube schon
+      - Klar!
+      - na logo
+      - na logisch
+
+  - intent: deny
+    examples: |
+      - nein
+      - no
+      - nö
+      - nie
+      - ne
+      - niemals
+      - das denke ich nicht
+      - das mag ich nicht
+      - das sehe ich nicht so
+      - das ist nicht der fall
+      - nicht wirklich
+      - das habe ich nicht verstanden
+      - das war mir jetzt zu schnell
+      - das war mir zu viel Information
+      - das verstehe ich nicht
+      - ich weiß nicht
+      - nein, das verstehe ich nicht
+      - nein, das habe ich nicht verstanden
+      - das ist absolut unverständlich
+      - ich bin mir nicht sicher
+      - du kannst nichts mehr für mich tun, danke
+      - ich glaube nicht
+      - nein danke
+      - ne, danke
+
+  - intent: thank
+    examples: |
+      - danke
+      - super
+      - super, danke
+      - vielen dank
+      - dankeschön
+      - du bist super
+      - danke für die hilfe
+      - großes dankeschön
+
+  - intent: ready
+    examples: |
+      - ich bin fertig
+      - ich habe alles gelesen
+      - ich bin bereit
+      - ich bin ready
+      - ich bin soweit
+      - lass uns starten
+      - lass und loslegen
+      - lass uns weitermachen
+      - lass uns beginnen
+      - du kannst weitermachen
+      - du kannst loslegen
+      - erzähle mir mehr
+      - ich habe alles auf der website gelesen
+      - ich bin fertig mit lesen
+      - fertig!
+      - los gehts!
+      - Ich bin durch
+      - done
+
+  - intent: bot_challenge
+    examples: |
+      - bist du ein bot?
+      - bist du ein mensch?
+      - rede ich mit einem menschen?
+      - rede ich mit einem bot?
+      - rede ich mit einem bot oder einem menschen?
+      - rede ich mit einer person?
+      - Bist du eine KI?
+      - Bist du eine AI?
+      - Wer bist du?
+      - Bist du eine Ernährungsberaterin?
+
+# this intent can bee used to check the connection
+  - intent: ping
+    examples: |
+      - ping
+      - pong
+
+# Rasa cannot handle messages of form "/<string> since it interprets <string> as intent
+# below some commands a user might try to use to shut down rasa are listed and handled explicitly in the pyramid_rules.yml
+  - intent: stop
+    examples: |
+      - stop
+
+  - intent: shutdown
+    examples: |
+      - shutdown
+
+  - intent: exit
+    examples: |
+      - exit
+
+  - intent: end
+    examples: |
+      - end

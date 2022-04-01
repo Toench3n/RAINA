@@ -1,0 +1,575 @@
+# in this file all possible stories for the initial conversation flow are written down to prepare RAINA for all
+# possibilities and provide useful information and motivation to the users
+version: "2.0"
+
+stories:
+  # in the first two stories the case is handled, that the user either knows everything or does not know anything
+  - story: user understands everything
+    steps:
+      - intent: start
+      - action: utter_tell_activated
+      - action: utter_ask_readyness
+      - intent: ready
+      - action: utter_ask_pyramid_knowledge
+      - intent: affirm
+      - action: utter_praise_pyramid_knowledge
+      - action: utter_ask_colors_knowledge
+      - intent: affirm
+      - action: utter_praise_colors_knowledge
+      - action: utter_ask_icons_knowledge
+      - intent: affirm
+      - action: utter_praise_icons_knowledge
+      - action: utter_ask_portion_size_knowledge
+      - intent: affirm
+      - action: utter_praise_portion_size_knowledge
+      - action: utter_ask_portion_exercise
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Getränke"
+      - action: action_add_portion
+      - action: utter_praise_portion_exercise
+      - action: utter_ask_pyramid_exercise
+      - intent: show_single_pyramid
+      - action: action_show_single_pyramid
+      - action: utter_praise_pyramid_exercise
+      - action: utter_tell_ready_to_go
+      - action: action_add_user
+
+  - story: user understands nothing
+    steps:
+      - intent: start
+      - action: utter_tell_activated
+      - action: utter_ask_readyness
+      - intent: ready
+      - action: utter_ask_pyramid_knowledge
+      - intent: deny
+      - action: utter_explain_pyramid_knowledge
+      - action: utter_ask_colors_knowledge
+      - intent: deny
+      - action: utter_explain_colors_knowledge
+      - action: utter_ask_icons_knowledge
+      - intent: deny
+      - action: utter_explain_icons_knowledge
+      - action: utter_ask_portion_size_knowledge
+      - intent: deny
+      - action: utter_explain_portion_size_knowledge
+      - action: utter_ask_portion_exercise
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Obst"
+      - action: action_add_portion
+      - action: utter_praise_portion_exercise
+      - action: utter_ask_pyramid_exercise
+      - intent: show_single_pyramid
+      - action: action_show_single_pyramid
+      - action: utter_praise_pyramid_exercise
+      - action: utter_tell_ready_to_go
+      - action: action_add_user
+
+  # the following four stories handle the cases that the user does not know one single topic
+  - story: user does not understand the pyramid
+    steps:
+      - intent: start
+      - action: utter_tell_activated
+      - action: utter_ask_readyness
+      - intent: ready
+      - action: utter_ask_pyramid_knowledge
+      - intent: deny
+      - action: utter_explain_pyramid_knowledge
+      - action: utter_ask_colors_knowledge
+      - intent: affirm
+      - action: utter_praise_colors_knowledge
+      - action: utter_ask_icons_knowledge
+      - intent: affirm
+      - action: utter_praise_icons_knowledge
+      - action: utter_ask_portion_size_knowledge
+      - intent: affirm
+      - action: utter_praise_portion_size_knowledge
+      - action: utter_ask_portion_exercise
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Gemüse"
+      - action: action_add_portion
+      - action: utter_praise_portion_exercise
+      - action: utter_ask_pyramid_exercise
+      - intent: show_single_pyramid
+      - action: action_show_single_pyramid
+      - action: utter_praise_pyramid_exercise
+      - action: utter_tell_ready_to_go
+      - action: action_add_user
+
+  - story: user does not understand the colors
+    steps:
+      - intent: start
+      - action: utter_tell_activated
+      - action: utter_ask_readyness
+      - intent: ready
+      - action: utter_ask_pyramid_knowledge
+      - intent: affirm
+      - action: utter_praise_pyramid_knowledge
+      - action: utter_ask_colors_knowledge
+      - intent: deny
+      - action: utter_explain_colors_knowledge
+      - action: utter_ask_icons_knowledge
+      - intent: affirm
+      - action: utter_praise_icons_knowledge
+      - action: utter_ask_portion_size_knowledge
+      - intent: affirm
+      - action: utter_praise_portion_size_knowledge
+      - action: utter_ask_portion_exercise
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Milchprodukte"
+      - action: action_add_portion
+      - action: utter_praise_portion_exercise
+      - action: utter_ask_pyramid_exercise
+      - intent: show_single_pyramid
+      - action: action_show_single_pyramid
+      - action: utter_praise_pyramid_exercise
+      - action: utter_tell_ready_to_go
+      - action: action_add_user
+
+  - story: user does not understand the icons
+    steps:
+      - intent: start
+      - action: utter_tell_activated
+      - action: utter_ask_readyness
+      - intent: ready
+      - action: utter_ask_pyramid_knowledge
+      - intent: affirm
+      - action: utter_praise_pyramid_knowledge
+      - action: utter_ask_colors_knowledge
+      - intent: affirm
+      - action: utter_praise_colors_knowledge
+      - action: utter_ask_icons_knowledge
+      - intent: deny
+      - action: utter_explain_icons_knowledge
+      - action: utter_ask_portion_size_knowledge
+      - intent: affirm
+      - action: utter_praise_portion_size_knowledge
+      - action: utter_ask_portion_exercise
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Kohlenhydrate"
+      - action: action_add_portion
+      - action: utter_praise_portion_exercise
+      - action: utter_ask_pyramid_exercise
+      - intent: show_single_pyramid
+      - action: action_show_single_pyramid
+      - action: utter_praise_pyramid_exercise
+      - action: utter_tell_ready_to_go
+      - action: action_add_user
+
+  - story: user does not understand the portion sizes
+    steps:
+      - intent: start
+      - action: utter_tell_activated
+      - action: utter_ask_readyness
+      - intent: ready
+      - action: utter_ask_pyramid_knowledge
+      - intent: affirm
+      - action: utter_praise_pyramid_knowledge
+      - action: utter_ask_colors_knowledge
+      - intent: affirm
+      - action: utter_praise_colors_knowledge
+      - action: utter_ask_icons_knowledge
+      - intent: affirm
+      - action: utter_praise_icons_knowledge
+      - action: utter_ask_portion_size_knowledge
+      - intent: deny
+      - action: utter_explain_portion_size_knowledge
+      - action: utter_ask_portion_exercise
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Fleisch"
+      - action: action_add_portion
+      - action: utter_praise_portion_exercise
+      - action: utter_ask_pyramid_exercise
+      - intent: show_single_pyramid
+        entities:
+          - time: "vor einer Woche"
+      - action: action_show_single_pyramid
+      - action: utter_praise_pyramid_exercise
+      - action: utter_tell_ready_to_go
+      - action: action_add_user
+
+  # the following 6 stories handle all combinations of two topics the user might not know
+  - story: user does not understand the pyramid and colors
+    steps:
+      - intent: start
+      - action: utter_tell_activated
+      - action: utter_ask_readyness
+      - intent: ready
+      - action: utter_ask_pyramid_knowledge
+      - intent: deny
+      - action: utter_explain_pyramid_knowledge
+      - action: utter_ask_colors_knowledge
+      - intent: deny
+      - action: utter_explain_colors_knowledge
+      - action: utter_ask_icons_knowledge
+      - intent: affirm
+      - action: utter_praise_icons_knowledge
+      - action: utter_ask_portion_size_knowledge
+      - intent: affirm
+      - action: utter_praise_portion_size_knowledge
+      - action: utter_ask_portion_exercise
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Öl"
+      - action: action_add_portion
+      - action: utter_praise_portion_exercise
+      - action: utter_ask_pyramid_exercise
+      - intent: show_single_pyramid
+      - action: action_show_single_pyramid
+      - action: utter_praise_pyramid_exercise
+      - action: utter_tell_ready_to_go
+      - action: action_add_user
+
+  - story: user does not understand the pyramid and the icons
+    steps:
+      - intent: start
+      - action: utter_tell_activated
+      - action: utter_ask_readyness
+      - intent: ready
+      - action: utter_ask_pyramid_knowledge
+      - intent: deny
+      - action: utter_explain_pyramid_knowledge
+      - action: utter_ask_colors_knowledge
+      - intent: affirm
+      - action: utter_praise_colors_knowledge
+      - action: utter_ask_icons_knowledge
+      - intent: deny
+      - action: utter_explain_icons_knowledge
+      - action: utter_ask_portion_size_knowledge
+      - intent: affirm
+      - action: utter_praise_portion_size_knowledge
+      - action: utter_ask_portion_exercise
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Fett"
+      - action: action_add_portion
+      - action: utter_praise_portion_exercise
+      - action: utter_ask_pyramid_exercise
+      - intent: show_single_pyramid
+        entities:
+          - time: "gestern"
+      - action: action_show_single_pyramid
+      - action: utter_praise_pyramid_exercise
+      - action: utter_tell_ready_to_go
+      - action: action_add_user
+
+  - story: user does not understand the pyramid and the portion sizes
+    steps:
+      - intent: start
+      - action: utter_tell_activated
+      - action: utter_ask_readyness
+      - intent: ready
+      - action: utter_ask_pyramid_knowledge
+      - intent: deny
+      - action: utter_explain_pyramid_knowledge
+      - action: utter_ask_colors_knowledge
+      - intent: affirm
+      - action: utter_praise_colors_knowledge
+      - action: utter_ask_icons_knowledge
+      - intent: affirm
+      - action: utter_praise_icons_knowledge
+      - action: utter_ask_portion_size_knowledge
+      - intent: deny
+      - action: utter_explain_portion_size_knowledge
+      - action: utter_ask_portion_exercise
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Extras"
+      - action: action_add_portion
+      - action: utter_praise_portion_exercise
+      - action: utter_ask_pyramid_exercise
+      - intent: show_single_pyramid
+        entities:
+          - time: "am 15.10.2021"
+      - action: action_show_single_pyramid
+      - action: utter_praise_pyramid_exercise
+      - action: utter_tell_ready_to_go
+      - action: action_add_user
+
+  - story: user does not understand the colors and the icons
+    steps:
+      - intent: start
+      - action: utter_tell_activated
+      - action: utter_ask_readyness
+      - intent: ready
+      - action: utter_ask_pyramid_knowledge
+      - intent: affirm
+      - action: utter_praise_pyramid_knowledge
+      - action: utter_ask_colors_knowledge
+      - intent: deny
+      - action: utter_explain_colors_knowledge
+      - action: utter_ask_icons_knowledge
+      - intent: deny
+      - action: utter_explain_icons_knowledge
+      - action: utter_ask_portion_size_knowledge
+      - intent: affirm
+      - action: utter_praise_portion_size_knowledge
+      - action: utter_ask_portion_exercise
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Getränke"
+      - action: action_add_portion
+      - action: utter_praise_portion_exercise
+      - action: utter_ask_pyramid_exercise
+      - intent: show_single_pyramid
+      - action: action_show_single_pyramid
+      - action: utter_praise_pyramid_exercise
+      - action: utter_tell_ready_to_go
+      - action: action_add_user
+
+  - story: user does not understand the colors and the portion sizes
+    steps:
+      - intent: start
+      - action: utter_tell_activated
+      - action: utter_ask_readyness
+      - intent: ready
+      - action: utter_ask_pyramid_knowledge
+      - intent: affirm
+      - action: utter_praise_pyramid_knowledge
+      - action: utter_ask_colors_knowledge
+      - intent: deny
+      - action: utter_explain_colors_knowledge
+      - action: utter_ask_icons_knowledge
+      - intent: affirm
+      - action: utter_praise_icons_knowledge
+      - action: utter_ask_portion_size_knowledge
+      - intent: deny
+      - action: utter_explain_portion_size_knowledge
+      - action: utter_ask_portion_exercise
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Getränke"
+      - action: action_add_portion
+      - action: utter_praise_portion_exercise
+      - action: utter_ask_pyramid_exercise
+      - intent: show_single_pyramid
+        entities:
+          - time: "vor 4 Tagen"
+      - action: action_show_single_pyramid
+      - action: utter_praise_pyramid_exercise
+      - action: utter_tell_ready_to_go
+      - action: action_add_user
+
+  - story: user does not understand the icons and the portion sizes
+    steps:
+      - intent: start
+      - action: utter_tell_activated
+      - action: utter_ask_readyness
+      - intent: ready
+      - action: utter_ask_pyramid_knowledge
+      - intent: affirm
+      - action: utter_praise_pyramid_knowledge
+      - action: utter_ask_colors_knowledge
+      - intent: affirm
+      - action: utter_praise_colors_knowledge
+      - action: utter_ask_icons_knowledge
+      - intent: affirm
+      - action: utter_praise_icons_knowledge
+      - action: utter_ask_portion_size_knowledge
+      - intent: deny
+      - action: utter_explain_portion_size_knowledge
+      - action: utter_ask_portion_exercise
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Extras"
+      - action: action_add_portion
+      - action: utter_praise_portion_exercise
+      - action: utter_ask_pyramid_exercise
+      - intent: show_single_pyramid
+      - action: action_show_single_pyramid
+      - action: utter_praise_pyramid_exercise
+      - action: utter_tell_ready_to_go
+      - action: action_add_user
+
+  # the following four stories handle the cases that the user does only know one of the topics
+  - story: user understands only the pyramid
+    steps:
+      - intent: start
+      - action: utter_tell_activated
+      - action: utter_ask_readyness
+      - intent: ready
+      - action: utter_ask_pyramid_knowledge
+      - intent: affirm
+      - action: utter_praise_pyramid_knowledge
+      - action: utter_ask_colors_knowledge
+      - intent: deny
+      - action: utter_explain_colors_knowledge
+      - action: utter_ask_icons_knowledge
+      - intent: deny
+      - action: utter_explain_icons_knowledge
+      - action: utter_ask_portion_size_knowledge
+      - intent: deny
+      - action: utter_explain_portion_size_knowledge
+      - action: utter_ask_portion_exercise
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Milchprodukte"
+      - action: action_add_portion
+      - action: utter_praise_portion_exercise
+      - action: utter_ask_pyramid_exercise
+      - intent: show_single_pyramid
+      - action: action_show_single_pyramid
+      - action: utter_praise_pyramid_exercise
+      - action: utter_tell_ready_to_go
+      - action: action_add_user
+
+  - story: user understands only the colors
+    steps:
+      - intent: start
+      - action: utter_tell_activated
+      - action: utter_ask_readyness
+      - intent: ready
+      - action: utter_ask_pyramid_knowledge
+      - intent: deny
+      - action: utter_explain_pyramid_knowledge
+      - action: utter_ask_colors_knowledge
+      - intent: affirm
+      - action: utter_praise_colors_knowledge
+      - action: utter_ask_icons_knowledge
+      - intent: deny
+      - action: utter_explain_icons_knowledge
+      - action: utter_ask_portion_size_knowledge
+      - intent: deny
+      - action: utter_explain_portion_size_knowledge
+      - action: utter_ask_portion_exercise
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Getränke"
+      - action: action_add_portion
+      - action: utter_praise_portion_exercise
+      - action: utter_ask_pyramid_exercise
+      - intent: show_single_pyramid
+      - action: action_show_single_pyramid
+      - action: utter_praise_pyramid_exercise
+      - action: utter_tell_ready_to_go
+      - action: action_add_user
+
+  - story: user understands only the icons
+    steps:
+      - intent: start
+      - action: utter_tell_activated
+      - action: utter_ask_readyness
+      - intent: ready
+      - action: utter_ask_pyramid_knowledge
+      - intent: deny
+      - action: utter_explain_pyramid_knowledge
+      - action: utter_ask_colors_knowledge
+      - intent: deny
+      - action: utter_explain_colors_knowledge
+      - action: utter_ask_icons_knowledge
+      - intent: affirm
+      - action: utter_praise_icons_knowledge
+      - action: utter_ask_portion_size_knowledge
+      - intent: deny
+      - action: utter_explain_portion_size_knowledge
+      - action: utter_ask_portion_exercise
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Obst"
+      - action: action_add_portion
+      - action: utter_praise_portion_exercise
+      - action: utter_ask_pyramid_exercise
+      - intent: show_single_pyramid
+      - action: action_show_single_pyramid
+      - action: utter_praise_pyramid_exercise
+      - action: utter_tell_ready_to_go
+      - action: action_add_user
+
+  - story: user understands only the portion sizes
+    steps:
+      - intent: start
+      - action: utter_tell_activated
+      - action: utter_ask_readyness
+      - intent: ready
+      - action: utter_ask_pyramid_knowledge
+      - intent: deny
+      - action: utter_explain_pyramid_knowledge
+      - action: utter_ask_colors_knowledge
+      - intent: deny
+      - action: utter_explain_colors_knowledge
+      - action: utter_ask_icons_knowledge
+      - intent: affirm
+      - action: utter_praise_icons_knowledge
+      - action: utter_ask_portion_size_knowledge
+      - intent: affirm
+      - action: utter_praise_portion_size_knowledge
+      - action: utter_ask_portion_exercise
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Gemüse"
+      - action: action_add_portion
+      - action: utter_praise_portion_exercise
+      - action: utter_ask_pyramid_exercise
+      - intent: show_single_pyramid
+      - action: action_show_single_pyramid
+      - action: utter_praise_pyramid_exercise
+      - action: utter_tell_ready_to_go
+      - action: action_add_user
+
+# duplicate stories with different portions to add in exercise
+  - story: perfect story adding a glas of water
+    steps:
+      - intent: start
+      - action: utter_tell_activated
+      - action: utter_ask_readyness
+      - intent: ready
+      - action: utter_ask_pyramid_knowledge
+      - intent: affirm
+      - action: utter_praise_pyramid_knowledge
+      - action: utter_ask_colors_knowledge
+      - intent: affirm
+      - action: utter_praise_colors_knowledge
+      - action: utter_ask_icons_knowledge
+      - intent: affirm
+      - action: utter_praise_icons_knowledge
+      - action: utter_ask_portion_size_knowledge
+      - intent: affirm
+      - action: utter_praise_portion_size_knowledge
+      - action: utter_ask_portion_exercise
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Wasser"
+      - action: action_add_portion
+      - action: utter_praise_portion_exercise
+      - action: utter_ask_pyramid_exercise
+      - intent: show_single_pyramid
+      - action: action_show_single_pyramid
+      - action: utter_praise_pyramid_exercise
+      - action: utter_tell_ready_to_go
+      - action: action_add_user
+
+  - story: user understands nothing and adds glas of water
+    steps:
+      - intent: start
+      - action: utter_tell_activated
+      - action: utter_ask_readyness
+      - intent: ready
+      - action: utter_ask_pyramid_knowledge
+      - intent: deny
+      - action: utter_explain_pyramid_knowledge
+      - action: utter_ask_colors_knowledge
+      - intent: deny
+      - action: utter_explain_colors_knowledge
+      - action: utter_ask_icons_knowledge
+      - intent: deny
+      - action: utter_explain_icons_knowledge
+      - action: utter_ask_portion_size_knowledge
+      - intent: deny
+      - action: utter_explain_portion_size_knowledge
+      - action: utter_ask_portion_exercise
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Wasser"
+      - action: action_add_portion
+      - action: utter_praise_portion_exercise
+      - action: utter_ask_pyramid_exercise
+      - intent: show_single_pyramid
+      - action: action_show_single_pyramid
+      - action: utter_praise_pyramid_exercise
+      - action: utter_tell_ready_to_go
+      - action: action_add_user

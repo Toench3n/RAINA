@@ -1,0 +1,377 @@
+# https://rasa.com/docs/rasa/nlu-training-data/#synonyms
+# In this file synonyms and different spellings for a field in the pyramid are specified. This is work in progress as
+# user input may suggest new synonyms.
+# Additionally, "synonyms" are the different types of foods, which are summed up in the field: e.g. "Milch", "Joghurt",
+# "Käse" are all equivalent to "Milchprodukte" (those are defined by the BZfE)
+# As a proof of concept there are also so specific foods included in the groups to achieve tracking of specific products
+
+# Note that there are also some funny synonyms and products which have been tried in user-conversations and have been
+# added as easter-eggs. However, those are only products witch match exactly one field.
+
+# The synonyms are then used in the enum_mapper to get the fields from the pyramid
+version: "2.0"
+
+nlu:
+
+  - synonym: Getränke
+    examples: |
+      - getränke
+      - wasser
+      - tee
+      - kaffee
+      - sprudelwasser
+      - Früchtetee
+      - Kräutertee
+      - Minztee
+      - Pfefferminztee
+      - Fencheltee
+      - Mineralwasser
+      - schwarzer Kaffee
+      - Espresso
+      - schwarzer Tee
+      - grüner Tee
+      - Brennesseltee
+      - Kaffe
+      - Kafee
+      - Kafe
+      - Expresso
+
+  - synonym: Obst
+    examples: |
+      - Obst
+      - Früchte
+      - Beeren
+      - Obstsalat
+      - Apfel
+      - Äpfel
+      - Banane
+      - Bananen
+      - Trauben
+      - Pfirsich
+      - Erdbeeren
+      - Birne
+      - Birnen
+      - Kirsche
+      - Nektarine
+      - Nektarinen
+      - Himbeeren
+      - Pflaume
+      - Pflaumen
+      - Orange
+      - Orangen
+      - Mandarine
+      - Nüsse
+      - Walnüsse
+      - Erdnüsse
+      - Wassermelone
+      - Melone
+      - Saft
+      - Fruchtsaft
+      - Orangensaft
+      - Apfelsaft
+      - Traubensaft
+      - Clementine
+      - Mango
+      - Mangos
+      - Papaya
+      - Grapefruit
+      - Pomelo
+      - Passionsfrucht
+      - Maracuja
+
+  - synonym: Gemüse
+    examples: |
+      - gemüse
+      - grünzeug
+      - veggies
+      - rohkost
+      - salat
+      - grüner Salat
+      - Tomate
+      - Gurke
+      - Gurken
+      - Rübe
+      - Karotte
+      - Karotten
+      - Zucchini
+      - Aubergine
+      - Radieschen
+      - Zwiebel
+      - Pilze
+      - Paprika
+      - Sellerie
+      - Eisbergsalat
+      - Blumenkohl
+      - Brokkoli
+      - Kohl
+      - Sauerkraut
+      - Kichererbsen
+      - Linsen
+      - Belugalinsen
+      - rote Linsen
+      - Hülsenfrüchte
+      - Rüben
+      - schwarze Linsen
+      - Kirschtomate
+      - Kirschtomaten
+      - Chili
+      - Peperoni
+      - Rotkohl
+      - Blaukraut
+      - Eisbergsalat
+      - Romasalat
+      - Roma Salat
+      - Salatherz
+      - Salatherzen
+      - Austernpilz
+      - Austernpilze
+      - Champignon
+      - Champignons
+      - Kräuterseitling
+      - Kräuterseitlinge
+      - Prizessbohnen
+      - grüne Bohnen
+      - Brechbohnen
+
+  - synonym: Kohlenhydrate
+    examples: |
+      - kohlenhydrate
+      - KH
+      - KHs
+      - beilagen
+      - beilage
+      - Kartoffeln
+      - Kartoffel
+      - Nudeln
+      - Reis
+      - Quinoa
+      - Brot
+      - Baguette
+      - Vollkornbrot
+      - Vollkornreis
+      - Couscous
+      - Kartoffelbrei
+      - Kartoffelpüree
+      - Kartoffelstampf
+      - Wrap
+      - Tortilla
+      - Vollkornnudeln
+      - Süßkartoffel
+      - Haferflocken
+      - Polenta
+      - Müsli
+      - Cornflakes
+      - Rice Crispies
+      - Puffreis
+      - Basismüsli
+      - Frühstücksflocken
+      - Kölln Flocken
+      - Dinkelflocken
+      - Früchtemüsli
+      - Knuspermüsli
+      - Bergsteigermüsli
+      - Amarant
+      - Bulgur
+      - Tortilla
+      - Knäckebrot
+      - Cracker
+      - Seitenbacher Bergsteigermüsli
+      - MyMuesli
+      - Toast
+      - Toastbrot
+      - Semmel
+      - Semmeln
+      - Brötchen
+      - Kornspitz
+      - Breze
+      - Bauernbrot
+      - Roggenbrot
+
+  - synonym: Milchprodukte
+    examples: |
+      - Milchprodukte
+      - Milch
+      - Joghurt
+      - Käse
+      - Fruchtzwerg
+      - Fruchtjoghurt
+      - Frischkäse
+      - Quark
+      - Magerquark
+      - Scheibenkäse
+      - Reibekäse
+      - Parmesan
+      - Pizzakäse
+      - Skyr
+      - Sahne
+      - Kochsahne
+      - Topfen
+      - Maskarpone
+      - griechischer Joghurt
+      - Jogurt
+      - Jogurth
+      - Kaffesahne
+      - Kaffeesahne
+      - Bergkäse
+      - Brie
+      - Camenbert
+      - Gouda
+      - Cheddar
+      - Kefir
+      - Buttermilch
+      - Quäse
+      - Harzer Roller
+      - Racelette
+      - Raclette
+      - Raclett
+      - Käsefondue
+
+  - synonym: Fleisch
+    examples: |
+      - Fleisch
+      - fleisch
+      - Wurst
+      - Fisch
+      - fisch
+      - Ei
+      - Steak
+      - Hühnchen
+      - Hackfleisch
+      - Wurstaufschnitt
+      - Leberwurst
+      - Mettwurst
+      - Teewurst
+      - Mortadella
+      - Schinken
+      - Putenbrust
+      - Lachs
+      - Makrele
+      - Hering
+      - Thunfisch
+      - Eier
+      - vegane Wurst
+      - Burgerpatties
+      - vegane Burgerpatties
+      - Lammfilet
+      - Schweinenacken
+      - Rinderfilet
+      - Rumpsteak
+      - Tofu
+      - Hähnchen
+      - Forelle
+      - Geschnetzeltes
+      - Tartar
+      - Carpaccio
+      - T-Bone Steak
+      - Burger
+      - Salami
+      - Pastete
+      - Leberpastete
+      - Sülze
+      - Bratensülze
+      - Ente
+      - Gans
+      - Fondue
+      - BBQ
+
+  - synonym: Fett
+    examples: |
+      - Fett
+      - fett
+      - Butter
+      - Margarine
+      - Kokosfett
+      - Schmalz
+      - Griebenschmalz
+      - Erdnussbutter
+      - Mandelbutter
+      - Cashewbutter
+      - Pistazienbutter
+      - Buter
+      - Magarine
+      - Frittierfett
+
+  - synonym: Öl
+    examples: |
+      - Öl
+      - öl
+      - Olivenöl
+      - Sonnenblumenöl
+      - Rapsöl
+      - Leinöl
+      - Walnussöl
+      - Sesamöl
+      - Erdnussöl
+      - Avocadoöl
+      - Maiskeimöl
+      - Mazola Öl
+      - Bratspray
+      - Kokosöl
+      - Palmfett
+      - Palmöl
+      - Hanföl
+
+  - synonym: Extras
+    examples: |
+      - Extras
+      - Schokolade
+      - Gummibärchen
+      - Eis
+      - Chips
+      - Süßigkeiten
+      - Cola
+      - Fanta
+      - Sprite
+      - Limo
+      - Limonade
+      - Kuchen
+      - Torte
+      - Kekse
+      - Pommes
+      - Pommes Frittes
+      - Wein
+      - Bier
+      - Schnaps
+      - Rotwein
+      - Weißwein
+      - Whisky
+      - Whiskey
+      - RedBull
+      - Vodka
+      - Gustl
+      - Augustiner
+      - NicNacs
+      - Studentenfutter
+      - Schoki
+      - Schokoriegel
+      - Snickers
+      - Plätzchen
+      - Kekse
+      - Glühwein
+      - Kinderpunsch
+      - Lebkuchen
+      - Cookie
+      - Keks
+      - Kekse
+      - Glückskeks
+      - Glückskekse
+      - Ramazotti
+      - Cantuccini
+      - Schokokeks
+      - Nimm2
+      - Nimm2 Soft
+      - Maoam
+      - Duplo
+      - Hanuta
+      - Manner Waffeln
+      - Manner Schnitten
+      - Snickers
+      - Mars
+      - Twix
+      - Linkes Twix
+      - Rechtes Twix
+      - Linke Twix
+      - Rechte Twix
+      - Süßes
+      - Knabberzeug
+      - Knabberreien

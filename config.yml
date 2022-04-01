@@ -1,0 +1,51 @@
+# Useful links for configuration:
+# https://rasa.com/docs/rasa/nlu/components/
+# https://rasa.com/docs/rasa/tuning-your-model/
+# https://rasa.com/docs/rasa/core/policies/
+# https://rasa.com/docs/rasa/policies/
+language: de
+
+pipeline:
+  # default pipeline used for training the initial model
+  - name: WhitespaceTokenizer
+  - name: RegexFeaturizer
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: char_wb
+    min_ngram: 1
+    max_ngram: 4
+  - name: DIETClassifier
+    epochs: 100
+    constrain_similarities: true
+  - name: DucklingEntityExtractor # enable RAINA to understand numbers
+    # url: "http://localhost:8000" # use this if running duckling on its own as docker container (or RasaX deployment)
+    url: "http://duckling:8000" # use this if using the docker-compose
+    dimensions: [ "time", "number" ]
+    locale: "de_DE"
+    timezone: "Europe/Berlin"
+  - name: EntitySynonymMapper # enables RAINA to understand synonyms for portions
+  - name: ResponseSelector
+    epochs: 100
+    constrain_similarities: true
+  - name: ResponseSelector
+    epochs: 100
+    retrieval_intent: faq
+  - name: FallbackClassifier # used if RAINA is not fully sure what the user meant
+    threshold: 0.7
+    ambiguity_threshold: 0.1
+
+policies:
+  # default policies used for training the initial model
+  - name: MemoizationPolicy
+  - name: RulePolicy # used if RAINA is not sure which action to perform next
+    core_fallback_threshold: 0.4
+    core_fallback_action_name: "action_default_fallback"
+    enable_fallback_prediction: True
+  - name: UnexpecTEDIntentPolicy
+    max_history: 5
+    epochs: 100
+  - name: TEDPolicy
+    max_history: 5
+    epochs: 100
+    constrain_similarities: true

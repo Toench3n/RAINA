@@ -1,0 +1,50 @@
+# in this file example stories to train the model with questions in between are simulated
+version: "2.0"
+
+stories:
+  - story: ask how to show pyramid and then show single pyramid
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: faq
+      - action: utter_faq
+      - intent: show_single_pyramid
+        entities:
+          - time: "heute"
+      - action: action_show_single_pyramid
+      - action: utter_offer_help
+      - intent: deny
+      - action: utter_motivate
+
+  - story: ask how to show pyramid and then show average pyramid
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: faq
+      - action: utter_faq
+      - intent: show_average_pyramid
+        entities:
+          - time: "letzte 7 Tage"
+      - action: action_show_average_pyramid
+      - action: utter_ask_task
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: add portion, ask for portion size, add second portion
+    steps:
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Milchprodukte"
+      - action: action_add_portion
+      - action: utter_offer_help
+      - intent: affirm
+      - action: utter_ask_task
+      - intent: faq
+      - action: utter_faq
+      - intent: add_portion
+        entities:
+          - pyramid_field: "Extras"
+      - action: action_add_portion
+      - action: utter_offer_help
+      - intent: deny
+      - action: utter_motivate

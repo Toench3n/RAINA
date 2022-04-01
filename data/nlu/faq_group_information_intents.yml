@@ -1,0 +1,161 @@
+# in this file the questions RAINA can answer are being implemented according to the notation given by Rasa to handle
+# FAQs: https://rasa.com/docs/rasa/2.x/chitchat-faqs
+
+version: "2.0"
+
+nlu:
+
+  - intent: faq/ask_water_information
+    examples: |
+      - Was fällt alles in das Feld Getränke?
+      - Was sind Getränke?
+      - Was bedeutet das Wasserglas?
+      - Was bedeutet das Glas?
+      - Was darf ich alles trinken?
+      - Was sind Getränke?
+      - Ist Wasser ein Getränk?
+      - Ist Tee ein Getränk?
+      - Was ist das Feld ganz unten?
+      - Gib mir Informationen zum Feld Getränke.
+      - Gib mir Infos zu Getränken.
+
+  - intent: faq/ask_fruits_information
+    examples: |
+      - Was fällt alles in das Feld Obst?
+      - Was ist Obst?
+      - Was bedeutet der Apfel?
+      - Was bedeutet das Apfel Symbol?
+      - Welches Obst darf ich alles essen?
+      - Welche Sorten Obst gibt es?
+      - Ist Trocken-Obst Obst?
+      - Ist ein Smoothie Obst?
+      - Was ist das Feld mit dem Apfel?
+      - Gib mir Informationen zum Feld Obst.
+      - Gib mir Infos zu Obst.
+
+  - intent: faq/ask_vegetables_information
+    examples: |
+      - Was fällt alles in das Feld Gemüse?
+      - Was ist Gemüse?
+      - Was bedeutet die Karotte?
+      - Was bedeutet die Mühre?
+      - Was bedeutet die Rübe?
+      - Was bedeutet das Karotten Symbol?
+      - Welches Gemüse darf ich alles essen?
+      - Welche Sorten Gemüse gibt es?
+      - Ist TK-Gemüse Gemüse?
+      - Sind Pommes Gemüse?
+      - Was ist das Feld mit der Karotte?
+      - Was ist das Feld mit der Möhre?
+      - Was ist das Feld mit der Rübe?
+      - Gib mir Informationen zum Feld Gemüse.
+      - Gib mir Infos zu Gemüse.
+
+  - intent: faq/ask_carbohydrates_information
+    examples: |
+      - Was fällt alles in das Feld Kohlenhydrate?
+      - Was fällt alles in das Feld Beilagen?
+      - Was fällt alles in das Feld mit dem Getreide?
+      - Was fällt alles in das Feld mit der Kartoffel?
+      - Was sind Kohlenhydrate?
+      - Was bedeutet das Getreide?
+      - Was bedeutet das Weizen?
+      - Was bedeutet die Kartoffel?
+      - Was bedeutet das Getreide Symbol?
+      - Was bedeutet das Weizen Symbol?
+      - Was bedeutet das Kartoffel Symbol?
+      - Welche Beilagen darf ich alles essen?
+      - Welche Kohlenhydrate darf ich alles essen?
+      - Darf ich Brot essen?
+      - Wozu gehört Brot?
+      - Welche Sorten Beilagen gibt es?
+      - Welche Sorten Kohlenhydrate gibt es?
+      - Sind Pommes eine Beilage?
+      - Was ist das Feld mit dem Getreide?
+      - Gib mir Informationen zum Feld Beilagen.
+      - Gib mir Infos zu Kohlenhydraten.
+
+  - intent: faq/ask_milk_produkts_information
+    examples: |
+      - Was fällt alles in das Feld Milchprodukte?
+      - Was sind Milchprodukte?
+      - Was bedeutet der Käse?
+      - Was bedeutet die Milch?
+      - Was bedeutet die Flasche mit Milch?
+      - Was bedeutet das Milch Symbol?
+      - Was bedeutet das Käse Symbol?
+      - Welches Milchprodukte darf ich alles essen?
+      - Welche Sorten Milchprodukte gibt es?
+      - Butter ein Milchprodukt?
+      - Was ist das Feld mit der Milch?
+      - Was ist das Feld mit dem Käse?
+      - Was ist das Feld mit der Flasche Milch?
+      - Gib mir Informationen zum Feld Milch.
+      - Gib mir Informationen zum Feld Milchprodukte.
+      - Gib mir Infos zu Milchprodukten.
+
+  - intent: faq/ask_meat_information
+    examples: |
+      - Was fällt alles in das Feld Fleisch?
+      - Was ist Fleisch?
+      - Was bedeutet der Fisch?
+      - Was bedeutet das Huhn?
+      - Was bedeutet das Brathähnchen?
+      - Was bedeutet das Hühnchen?
+      - Was sind Fleisch Portionen?
+      - Wozu gehören Eier?
+      - Wozu gehört Tofu?
+      - Was ist das Feld mit dem Fisch?
+      - Was ist das Feld mit dem Huhn?
+      - Gib mir Informationen zum Feld Fleisch.
+      - Gib mir Informationen zum Feld Fisch.
+      - Gib mir Infos zu Fleisch.
+      - Gib mir Infos zu Fisch.
+
+  - intent: faq/ask_oil_information
+    examples: |
+      - Was fällt alles in das Feld Öl?
+      - Was ist Öl?
+      - Was bedeutet das Öl?
+      - Was bedeutet die Flasche mit dem Tropfen?
+      - Was bedeutet die Ölflasche?
+      - Was sind Öl Portionen?
+      - Was ist das Feld mit dem Öl?
+      - Was ist das rote Feld mit der Flasche?
+      - Gib mir Informationen zum Feld Öl.
+      - Gib mir Informationen zum Feld Öle.
+      - Gib mir Infos zu Öl.
+      - Gib mir Infos zu Öle.
+
+  - intent: faq/ask_fat_information
+    examples: |
+      - Was fällt alles in das Feld Fett?
+      - Was ist Fett?
+      - Was bedeutet das Fett?
+      - Was bedeutet die Butter?
+      - Was bedeutet die Magarine?
+      - Was sind Fett Portionen?
+      - Was ist das Feld mit dem Fett?
+      - Was ist das Feld mit der Butter?
+      - Was ist das rote Feld mit dem Fett?
+      - Gib mir Informationen zum Feld Fett.
+      - Gib mir Informationen zum Feld Fette.
+      - Gib mir Infos zu Fett.
+      - Gib mir Infos zu Fette.
+
+
+  - intent: faq/ask_extras_information
+    examples: |
+      - Was fällt alles in das Feld Extras?
+      - Was sind Extras?
+      - Was bedeutet das Bonbon?
+      - Was bedeutet die Tüte Pommes?
+      - Was sind Extras Portionen?
+      - Was sind Extras?
+      - Was ist das Feld mit dem Bonbon?
+      - Was ist das Feld mit den Süßigkeiten?
+      - Was ist das rote Feld mit dem Bonbon?
+      - Gib mir Informationen zum Feld Extras.
+      - Gib mir Informationen zum Feld Süßigkeiten.
+      - Gib mir Infos zu Extras.
+      - Gib mir Infos zu Süßigkeiten.

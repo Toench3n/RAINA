@@ -1,0 +1,594 @@
+version: "2.0"
+
+# all user intents RAINA knows and can identify. Examples for the intends are listed in the corresponding NLU files
+# for each button to answer the check-in question a distinct intent is specified since telegram buttons can not use
+# entities.
+intents:
+  - start
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - thank
+  - ready
+  - bot_challenge
+  - add_portion
+  - remove_portion
+  - get_portions
+  - show_single_pyramid
+  - show_average_pyramid
+  - EXTERNAL_send_morning_check_in
+  - BUTTON_morning_check_in_1
+  - BUTTON_morning_check_in_2
+  - BUTTON_morning_check_in_3
+  - BUTTON_morning_check_in_4
+  - BUTTON_morning_check_in_5
+  - EXTERNAL_send_evening_check_in
+  - BUTTON_evening_check_in_1
+  - BUTTON_evening_check_in_2
+  - BUTTON_evening_check_in_3
+  - BUTTON_evening_check_in_4
+  - BUTTON_evening_check_in_5
+  - EXTERNAL_send_weekly_check_in
+  - BUTTON_weekly_check_in_1
+  - BUTTON_weekly_check_in_2
+  - BUTTON_weekly_check_in_3
+  - BUTTON_weekly_check_in_4
+  - BUTTON_weekly_check_in_5
+  - answer_check_in_question
+  - faq
+  - ping
+  - stop
+  - shutdown
+  - end
+  - exit
+
+# entities are being used for extracting portions for tracking as well as timestamps for getting pyramids and
+# storing information on the checkIn questions
+entities:
+  - pyramid_field
+  - number
+  - time
+
+# all custom actions implemented in actions.py are listed here
+actions:
+  - action_add_portion
+  - action_remove_portion
+  - action_get_number_of_portions
+  - action_show_single_pyramid
+  - action_show_average_pyramid
+  - action_evening_check_in
+  - action_weekly_check_in
+  - action_save_check_in
+  - action_add_user
+
+# the responses RAINA can give
+responses:
+  # utterance for connection testing ("pinging the bot" ;) )
+  utter_pong:
+    - text: "Pong 🏓"
+    - text: "Ping 🏓"
+
+  # general utterances
+  utter_greet:
+    - text: "Hey! ✌ Was kann ich für dich tun?"
+    - text: "Hi! ✌ Was gibt's?"
+    - text: "Hallo, wie kann ich dir helfen? 🤓"
+    - text: "Was gibt's? 😊"
+    - text: "Schön, dass du dich meldest! Was kann ich für dich tun? 😊"
+    - text: "Schön, dass du dich meldest! Wie kann ich dir helfen? 😊"
+    - text: "Freut mich von dir zu hören! Was kann ich für dich tun?"
+    - text: "Freut mich von dir zu hören! Wie kann ich dir helfen?"
+
+  utter_did_that_help:
+    - text: "Hat dir das geholfen?"
+    - text: "Konnte ich dir damit weiterhelfen?"
+    - text: "War das hilfreich? 🤓"
+
+  utter_offer_help:
+    - text: "Kann ich sonst noch etwas für dich tun?"
+    - text: "Kann ich dir anderweitig weiterhelfen?"
+    - text: "Hast du sonst noch einen Wunsch? 📝"
+    - text: "Brauchst du noch bei etwas Hilfe? 📝"
+
+  utter_ask_task:
+    - text: "Was kann ich noch für dich tun? 📝"
+    - text: "Gibt es noch etwas was ich für dich tun kann?"
+    - text: "Hast du noch eine Aufgabe für mich? 🤓"
+
+  utter_motivate:
+    - text: "Super! Immer weiter so! 👍"
+    - text: "Perfekt! Das freut mich! 💪"
+    - text: "Sehr gut! Melde dich einfach, wenn du noch etwas brauchst! 😌"
+    - text: "Perfekt! Wenn es noch etwas gibt, schreib mir einfach! 😌"
+
+  utter_thank:
+    - text: "Freut mich, wenn ich dir helfen konnte! 🥰 Melde dich einfach, wenn du noch etwas brauchst! 😌"
+    - text: "Bitte gerne! 🥰 Wenn es noch etwas gibt, schreib mir einfach! 😌"
+    - text: "Schön, dass ich dir helfen konnte! 🥰 Wenn es noch etwas gibt, schreib mir einfach! 😌"
+    - text: "Perfekt! 🥰 Melde dich einfach, wenn du noch etwas brauchst! 😌"
+
+  utter_goodbye:
+    - text: "Alles klar, bis später 👋"
+    - text: "Tschüss 👋"
+    - text: "Bis später! 👋"
+    - text: "Bis bald! 👋"
+    - text: "Bis zum nächsten Mal! 😊"
+    - text: "Schönen Tag noch! 😊"
+    - text: "Ich wünsch dir noch einen schönen Tag! 😊"
+
+  utter_iamabot:
+    - text: "Ich bin ein Bot basierend auf dem Rasa-Framework, trainiert von Anton Steuer im Rahmen seiner Bachelor-
+    Arbeit. 🤖 Alle Informationen sowie das Bild der Pyramide basieren auf der Website des Bundeszentrums für Ernährung:
+    \n
+    https://www.bzfe.de/ernaehrung/die-ernaehrungspyramide/die-ernaehrungspyramide-eine-fuer-alle/"
+
+  # utterances for check-In questions
+  utter_morning_check_in_question:
+    - text: "Guten Morgen! 👋 \n
+    Ich hoffe du hast gut geschlafen! Wie motiviert bist du heute in den Tag zu starten? 🌞"
+      buttons:
+        - title: "Ich bin überhaupt nicht motiviert 😪"
+          payload: '/BUTTON_morning_check_in_1'
+        - title: "Ich bin nicht wirklich motiviert 🥱"
+          payload: '/BUTTON_morning_check_in_2'
+        - title: "Ich weiß nicht so recht 🤷"
+          payload: '/BUTTON_morning_check_in_3'
+        - title: "Ich ich bin ein wenig motiviert ☺"
+          payload: '/BUTTON_morning_check_in_4'
+        - title: "Ich bin heute sehr motiviert 💪"
+          payload: '/BUTTON_morning_check_in_5'
+      button_type: vertical
+
+  utter_morning_cheer_up:
+    - text: "Lass den Kopf nicht hängen, vielleicht sieht es in ein paar Stunden schon ganz anders aus! 😉"
+    - text: "Das ist nicht schlimm. Lass den Tag heute einfach ein bisschen langsamer angehen. 😊"
+    - text: "Nicht jeder Tag muss perfekt starten, wichtig ist dass du dich einfach nicht unterkriegen lässt! 💪"
+
+  utter_morning_motivation:
+    - text: "Super! Dann wünsche ich dir einen tollen Tag, bis später! 😊"
+    - text: "Das ist schön zu hören! 😍"
+    - text: "Sehr gut! Dann kann der Tag ja nur gut werden! 👍"
+
+  utter_evening_check_in_question:
+    - text: "Lass uns doch einmal deinen Tag revue passieren. Wie gut konntest du die Pyramide heute in deinen Tag
+    integrieren? 🌙"
+      buttons:
+        - title: "Das hat heute gar nicht geklappt 😭"
+          payload: '/BUTTON_evening_check_in_1'
+        - title: "Heute fiel es mir eher schwer 😕"
+          payload: '/BUTTON_evening_check_in_2'
+        - title: "Das kann ich nicht einschätzen 🤷"
+          payload: '/BUTTON_evening_check_in_3'
+        - title: "Im großen und ganzen hat es gut geklappt 😊"
+          payload: '/BUTTON_evening_check_in_4'
+        - title: "Es hat super geklappt! 🤓"
+          payload: '/BUTTON_evening_check_in_5'
+      button_type: vertical
+
+  utter_evening_cheer_up:
+    - text: "Das ist nicht schlimm! Es ist komplett in Ordnung, wenn einmal ein Tag nicht zu 100% passt. 😊"
+    - text: "Gerade am Anfang kann es sein, dass du dir schwer tust weil das System noch neu ist. Aber gib nicht auf,
+    je länger du dich an der Pyramide orientierst, desto einfacher wird es dir in Zukunft fallen! 👩🏻‍🏫"
+    - text: "Es gibt einfach manchmal Tage an denen es nicht perfekt läuft. Das ist aber auch gar nicht weiter schlimm:
+    morgen gibt es eine ganz neue und leere Pyramide. Vielleicht hilft es dir, eine Sache von heute die schwierig war
+    auf einen Zettel zu schreiben und sie morgen bewusst besser zu machen. 📝"
+
+  utter_evening_motivation:
+    - text: "Super! Immer weiter so! 😊"
+    - text: "Perfekt! Das freut mich, wenn wir zusammen Ziele erreichen! 💪"
+    - text: "Toll! Es ist super, dass du deine Ernährung ausgewogen gestaltest!"
+
+  utter_weekly_check_in_question:
+    - text: "Wenn du dir deine Pyramide der letzten Woche ansiehst, wie zufrieden bist du mit deiner Ernährung? 📆"
+      buttons:
+        - title: "Ich bin total unzufrieden! 😞"
+          payload: '/BUTTON_weekly_check_in_1'
+        - title: "Ich habe mich schon besser ernährt 😅"
+          payload: '/BUTTON_weekly_check_in_2'
+        - title: "Ich bin mir nicht sicher 🤔"
+          payload: '/BUTTON_weekly_check_in_3'
+        - title: "Ich bin zufrieden, aber es geht noch besser 😊"
+          payload: '/BUTTON_weekly_check_in_4'
+        - title: "Ich finde das war diese Woche super! 😍"
+          payload: '/BUTTON_weekly_check_in_5'
+      button_type: vertical
+
+  utter_weekly_cheer_up:
+    - text: "Das ist nicht schlimm, gerade am Anfang kann es sein dass du die Pyramide noch nicht ganz verinnerlicht
+    hast und es eine kleine Herausforderung ist, sich an ihr zu orientieren. Bleib dran, nächste Woche sieht bestimmt
+    schon besser aus! 😊"
+    - text: "Das ist kein Problem. Denk daran, dass du wenn du unsicher bist jederzeit Fragen stellen und auch auf der
+    Website des BZfE alles nachlesen kannst. 👩🏻‍🏫 Bleib einfach weiter dabei und du wirst nach und nach Erfolge sehen.
+    Du schaffst das!"
+    - text: "Auch wenn dir deine Ernährung diese Woche nicht perfekt erscheinen mag, ist das nicht weiter tragisch.
+    Versuche einfach in den nächsten Tagen Schritt für Schritt einzelne kleine Probleme in Angriff zu nehmen. Dann sieht
+    deine Pyramide nächsten Sonntag direkt ein Stück besser aus! Du schaffst das! 😊"
+
+  utter_weekly_motivation:
+    - text: "Sehr gut! Dann kannst du morgen direkt fröhlich und motiviert in die neue Woche Starten! 💪"
+    - text: "Das freut mich, wenn du zufrieden bist! Ich wünsche dir noch einen schönen Abend! 👋"
+    - text: "Super! Dann wünsche ich dir auch für nächste Woche viel Erfolg. Bis morgen!"
+
+  # utterances used for asking questions in the initial conversation
+  utter_tell_activated:
+    - text: "Hi, ich bin RAINA, deine persönliche Ernährungs-Assistentin 👋 \n
+    Ich werde dich in der kommenden Zeit
+    unterstützen, deine Ernährung ausgewogen und gesund zu gestalten! 💪 \n
+    Wir verwenden dazu die Ernährungspyramide des
+    Bundeszentrums für Ernährung (BZfE):
+    \n \n
+    https://www.bzfe.de/ernaehrung/die-ernaehrungspyramide/die-ernaehrungspyramide-eine-fuer-alle/"
+
+  utter_ask_readyness:
+    - text: "Es wäre super, wenn du dir zu Beginn einmal die Webseite durchlesen könntest, wenn du das System noch nicht
+    kennst. Wenn es soweit ist, schreibe mir dass du fertig bist und wir legen direkt los, das Wissen noch einmal kurz
+    zu wiederholen! 🤓"
+
+  utter_ask_pyramid_knowledge:
+    - text: "Hast du grob verstanden worum es bei der Ernährungspyramide des BZfE geht? 🍴"
+      image: "https://nutritionpyramids.s3.eu-central-1.amazonaws.com/pyramid_default.png"
+      buttons:
+        - title: "Ja ✅"
+          payload: '/affirm'
+        - title: "Nein ❌"
+          payload: '/deny'
+      button_type: reply
+
+  utter_ask_colors_knowledge:
+    - text: "Wie du siehst, ist die Pyramide grob in drei Farben unterteilt. Wie bei einer Ampel gibt es grüne, gelbe
+    und rote Felder. Weißt du was die einzelnen Farben signalisieren sollen? 🚦"
+      buttons:
+        - title: "Ja ✅"
+          payload: '/affirm'
+        - title: "Nein ❌"
+          payload: '/deny'
+      button_type: reply
+
+  utter_ask_icons_knowledge:
+    - text: "Die Symbole der Pyramide stellen Lebensmittelgruppen dar. Kannst du dir unter allen Symbolen vorstellen,
+    welche Lebensmittelgruppe gemeint ist und welche Lebensmittel zur jeweiligen Gruppe gehören? 🥦"
+      buttons:
+        - title: "Ja ✅"
+          payload: '/affirm'
+        - title: "Nein ❌"
+          payload: '/deny'
+      button_type: reply
+
+  utter_ask_portion_size_knowledge:
+    - text: "Das Modell der Pyramide zeigt wie eine ausgewogene Ernährung für einen Tag aussehen kann: jedes Feld steht
+    für eine Portion der darauf abgebildeten Lebensmittelgruppe. Verstehst du die empfohlenen Portionsgrößen
+    des BZfE für die einzelnen Lebensmittelgruppen? 🍽
+    \n \n
+    (Tipp: eigene Hand als Maßeinheit ✋)"
+      buttons:
+        - title: "Ja ✅"
+          payload: '/affirm'
+        - title: "Nein ❌"
+          payload: '/deny'
+      button_type: reply
+
+  utter_ask_portion_exercise:
+    - text: "Dann geht es jetzt auch gleich schon praktisch los! Du kannst mir jederzeit schreiben wenn ich eine Portion
+    einer Lebensmittelgruppe zu deiner Pyramide hinzufügen/abziehen soll. Schnapp dir doch direkt einmal ein Glas
+    Wasser, es ist wichtig genug zu trinken. 🚰
+    \n \n
+    Um das Wasser jetzt einzutragen schreibe einfach \"Füge eine Portion Wasser hinzu\"!"
+
+  utter_ask_pyramid_exercise:
+    - text: "Um deine Pyramide zu sehen, frage mich einfach wie deine Pyramide aussieht und ich werde dir ein Bild
+    von deiner Pyramide schicken! 🖼
+    \n \n
+    Schreibe dazu einfach \"Wie sieht meine Pyramide heute aus?\""
+
+  utter_tell_ready_to_go:
+    - text: "Perfekt, dann bist du jetzt top informiert und wir können beginnen, zusammen deine Ernährung ausgewogen zu
+    gestalten. 😍
+    \n \n
+    Schreibe mir einfach wenn du etwas gegessen hast und ich trage es in deine Pyramide ein. Wenn du Fragen
+    zur Pyramide hast, kannst du mich gerne jederzeit fragen! 😊"
+
+  # utterances for praising the user understanding the topics in the initial conversation
+  utter_praise_pyramid_knowledge:
+    - text: "Super, dann ist die Basis schon einmal gesetzt! 👍"
+
+  utter_praise_colors_knowledge:
+    - text: "Perfekt, dann machen wir direkt weiter. 👩🏻‍🏫"
+
+  utter_praise_icons_knowledge:
+    - text: "Sehr gut. Sollte ich einmal nicht verstehen welches Feld du meinst, dann verwende einfach ein Synonym. Du
+    kannst mich auch jederzeit fragen, wie die Felder heißen. 📝"
+
+  utter_praise_portion_size_knowledge:
+    - text: "Wie du siehst, sind das keine konkreten Angaben in zum Beispiel Gramm. Das liegt daran, dass die Pyramide
+    ein Modell ist, das einfach und schnell für alle Personen anwendbar ist. Es geht dabei nicht darum auf das Gramm
+    genau die Nährstoffe zu notieren, sondern seine Ernährung allgemein ausgewogen zu gestalten. 👩🏻‍🏫"
+
+  utter_praise_portion_exercise:
+    - text: "Das hat ja super funktioniert! Ich kann übrigens auch Zahlen erkennen, solltest du direkt mehrere
+    Portionen einer Lebensmittelgruppe eintragen wollen. Wenn du aus Versehen einmal zu viel eingetragen hast, dann ist
+    das kein Problem: teile es mir mit und ich ziehe angegebenen Felder wieder ab.
+    \n \n
+    ℹ️ Bitte achte darauf, dass ich immer nur Portionen von einer Lebensmittelgruppe gleichzeitig einfügen kann!"
+
+  utter_praise_pyramid_exercise:
+    - text: "Cool oder? Ich kann dir auch deine Pyramide für einen bestimmten Tag zeigen. Schreibe dazu etwas wie \"Wie
+    hat meine Pyramide am 15.10.2021 ausgesehen\". 🖼\n
+    Wenn du deine Pyramide über einen bestimmten Zeitraum wissen
+    willst, dann geht das am besten mit einem konkreten Start- und End-Datum. Zum Beispiel: \"Zeige mir meine
+    durchschnittliche Pyramide vom 15.10.2021 bis zum 15.02.2022\""
+
+  # utterances for comforting the user if not understanding the topics in the initial conversation
+  utter_explain_pyramid_knowledge:
+    - text: "Bei der Ernährungspyramide geht es darum, wie eine ausgewogene Ernährung aussehen kann. Die Pyramide
+    bezieht sich dabei auf einen Tag. 📅\n
+    Wenn du allgemeine Fragen hast, kannst du mich jederzeit fragen. Ich versuche sie dir zu beantworten.\n
+    Lies dir am besten noch einmal die Informationen zur Pyramide durch, hier habe ich den Link für dich:
+    \n \n
+    https://www.bzfe.de/ernaehrung/die-ernaehrungspyramide/die-ernaehrungspyramide-eine-fuer-alle/"
+
+  utter_explain_colors_knowledge:
+    - text: "Die meisten Felder und Lebensmittelgruppen sind in der grünen Kategorie. Danach gibt es
+    ein paar weniger in der gelben Kategorie und am wenigsten in der der roten Kategorie. Die Farben geben eine
+    Orientierung über die Essensmengen. Konkret beschreibt das BZfE mit den Farben folgende Attribute:
+    \n \n
+    🟢 = reichlich, großzügig\n
+    🟡 = mäßig, regelmäßig und bewusst\n
+    🔴 = sparsam genießen, mit Bedacht"
+      image: "https://nutritionpyramids.s3.eu-central-1.amazonaws.com/pyramid_default.png"
+
+  utter_explain_icons_knowledge:
+    - text: "Fangen wir von unten an: In der untersten Zeile befinden sich Getränke 🚰, gefolgt von Obst 🍎 und Gemüse 🥕
+    in der Zeile darüber. Das Weizen Symbol in der dritten Zeile steht als Symbol für Kohlenhydrate 🌾; also Brot,
+    Getreide und Beilagen.\n
+    In der gelben Zeile sind tierische Produkte gelistet: drei Felder Milchprodukte 🥛 und ein
+    Feld für Fleisch und Fisch 🍗. Bei den roten Feldern gibt es je ein Feld für Öle 🍶 und Fette 🧈. Ganz oben sitzt ein
+    Feld für Extras 🍬.
+    \n \n
+    ℹ️ Sollte ich einmal nicht verstehen welches Feld du meinst, dann verwende einfach ein Synonym. Du kannst mich
+    auch jederzeit fragen, wie die Felder heißen. Das BZfE nennt auch konkrete Beispiele für Lebensmittel in den
+    einzelnen Gruppen. Mehr Infos findest du hier:
+    \n \n
+    https://www.bzfe.de/ernaehrung/die-ernaehrungspyramide/die-ernaehrungspyramide-eine-fuer-alle/ernaehrungspyramide-was-esse-ich/"
+
+  utter_explain_portion_size_knowledge:
+    - text: "Das ist kein Problem, am Anfang mag das System etwas unintuitiv wirken. Mit der Zeit wirst du dich
+    daran gewöhnen und merken, wie gut man es im Alltag einsetzen kann. Es geht dabei nicht darum auf das Gramm
+    genau die Nährstoffe zu notieren, sondern seine Ernährung allgemein ausgewogen zu gestalten. Hier kannst du dir noch
+    einmal die Erklärung der Portionsgrößen auf Basis der eigenen Hand durchlesen, es gibt auch tolle
+    Beispiel-Bilder:
+    \n \n
+    https://www.bzfe.de/ernaehrung/die-ernaehrungspyramide/die-ernaehrungspyramide-eine-fuer-alle/ernaehrungspyramide-wie-gross-ist-eine-portion/"
+
+  # in the following section the answers for the FAQs regarding additional information for the food groups.Answers are
+  # based on the information by the BZfE:
+  # https://www.bzfe.de/ernaehrung/die-ernaehrungspyramide/die-ernaehrungspyramide-eine-fuer-alle/ernaehrungspyramide-was-esse-ich/
+  utter_faq/ask_water_information:
+    - text: "Du solltest jeden Tag mindestens 1,5l trinken, das sind ungefähr 6 Gläser. Zum Feld Getränke zählen Wasser
+    und ungesüßte Früchte- und Kräutertees. Auch 3-4 Tassen Kaffee, schwarzer oder grüner Tee sind in Ordnung. Achte
+    aber darauf, dass Milch oder Zucker in deinen Heißgetränken extra zählen! 👩🏻‍🏫
+    \n \n
+    ℹ️ Weitere Informationen findest du auf den Webseiten des BZfE."
+
+  utter_faq/ask_fruits_information:
+    - text: "Die zwei Portionen Obst pro Tag bringen Farbe und Vitamine in deine Ernährung. Neben dem ganz klassischen
+    Obst wie Äpfel, Bananen, Beeren usw., kannst du auch eine der beiden Portionen durch eine Hand voll Nüssen ersetzen.
+    Nüsse bieten auch eine tolle Alternative zu z.B. Chips bei einem gemütlichen Fernseh-Abend. 👩🏻‍🏫
+    \n \n
+    ℹ️ Weitere Informationen findest du auf den Webseiten des BZfE."
+
+  utter_faq/ask_vegetables_information:
+    - text: "Die drei Portionen Gemüse pro Tag versorgen dich mit Vitaminen und sättigen dich zusammen mit den Beilagen.
+    Neben Karotten, Gurken und Paprika kannst du auch Hülsenfrüchte wie Erbsen in deine Ernährung integrieren. Sie haben
+    besonders viel Eiweiß und Ballaststoffe. Du kannst Gemüse sowohl gegart als auch roh Essen, achte aber darauf dass
+    wenn du zum braten Öl verwendest, du es extra einträgst! 👩🏻‍🏫
+    \n \n
+    ℹ️ Weitere Informationen findest du auf den Webseiten des BZfE."
+
+  utter_faq/ask_carbohydrates_information:
+    - text: "Getreideprodukte und Kartoffeln liefern dir Energie durch Kohlenhydrate. Du solltest pro Tag 4 Portionen an
+    Getreideprodukten wie Nudeln, Brot oder Reis essen. Bei mindestens der Hälfte solltest du dabei auf die
+    Vollkorn-Varianten zurückgreifen, da sie noch mehr Eiweiß, Vitamine, Mineralstoffe und Ballaststoffe enthalten. 👩🏻‍🏫
+    \n \n
+    ℹ️ Weitere Informationen findest du auf den Webseiten des BZfE."
+
+  utter_faq/ask_milk_produkts_information:
+    - text: "Milchprodukte versorgen dich mit Eiweiß, B-Vitaminen und Kalzium. Neben der normalen Milch gehören auch
+    Joghurt, Quark und Käse in diese Gruppe. In Sauermilchprodukten wie Joghurt sind Milchsäurebakterien enthalten, die
+    eine wichtige Rolle bei der Verdauung spielen. 👩🏻‍🏫
+    \n \n
+    ℹ️ Weitere Informationen findest du auf den Webseiten des BZfE."
+
+  utter_faq/ask_meat_information:
+    - text: "Zur Lebensmittelgruppe Fleisch zählen mehrere Lebensmittel: maximal 2-3 Portionen FLeisch liefern dir über
+    die Woche genügen Protein. Am besten achtest du bereits beim Einkauf darauf mageres Fleisch zu kaufen. Anders ist es
+    bei Fisch: 1-2mal pro Woche versorgen dich grade fettreiche Fische wie Lachs mit Omega-3-Fettsäuren. Außerdem
+    verbessern sie deine Versorgung mit Jod. Wenn du dich vegetarisch ernährst, kannst du Fleisch und Fisch auch durch
+    Ersatzprodukte, Eier oder Hülsenfrüchte ersetzen. 👩🏻‍🏫
+    \n \n
+    ℹ️ Weitere Informationen findest du auf den Webseiten des BZfE."
+
+  utter_faq/ask_oil_information:
+    - text: "Mit Ölen und Fetten solltest du sparsam umgehen. Bei Ölen ist die Qualität sehr wichtig: Walnuss-, Oliven-
+    und Lein-Öl enthalten wertvolle Fettsäuren und lassen sich zum Beispiel für Dressing oder zum Braten verwenden. 👩🏻‍🏫
+    \n \n
+    ℹ️ Weitere Informationen findest du auf den Webseiten des BZfE."
+
+  utter_faq/ask_fat_information:
+    - text: "Mit Ölen und Fetten solltest du sparsam umgehen. Zu den Fetten gehören zum Beispiel Butter oder Margarine.
+    Wenn du auf deinem schon Frischkäse, einen Aufstrich oder Quark verwendest, kannst du das Fett einfach weglassen und
+    sparst dir so eine Portion. Geschmacklich macht es fast keinen Unterschied. 👩🏻‍🏫
+    \n \n
+    ℹ️ Weitere Informationen findest du auf den Webseiten des BZfE."
+
+  utter_faq/ask_extras_information:
+    - text: "Bei den Extras geht es nicht nur um Süßigkeiten oder Chips. In diese Gruppe gehören auch Torten, Softdrinks,
+    alkoholische Getränke aber auch salzige Knabbereien und auch Pommes. Wenn du diese Lebensmittel in kleinen Mengen
+    genießt brauchst du kein schlechtes Gewissen zu haben! Wenn du aber Hunger habe solltest, greife am Besten auf etwas
+    sättigendes zurück. 👩🏻‍🏫
+    \n \n
+    ℹ️ Weitere Informationen findest du auf den Webseiten des BZfE."
+
+  # in the following section the answers for the FAQs regarding additional information for the portion sizes.Answers are
+  # based on the information by the BZfE: https://www.bzfe.de/portionsgroesse-gemessen-mit-der-eigenen-hand/#c12143
+  utter_faq/ask_water_portion_size:
+    - text: "Eine Portion Getränke orientiert sich auch an deiner Hand. Da du aber Flüssigkeiten nicht ohne weiteres
+    halten kannst messen wir eine Portion als ein Glas oder eine Tasse deines Getränks. Das sollte ungefähr 300ml
+    sein, damit du mit 6 Portionen auf mindestens 1,5l am Tag kommst. Du kannst aber gerne auch mehr Wasser trinken! 👩🏻‍🏫
+    \n \n
+    ℹ️ Weitere Informationen und Beispiel-Bilder findest du auf den Webseiten des BZfE."
+
+  utter_faq/ask_fruits_portion_size:
+    - text: "Das kommt auf das Obst an: große Obstsorten wie Äpfel, Birnen oder Orangen passen super in eine Hand. Bei
+    kleineren Obstsorten wie Beeren oder Kirschen oder bereits geschnittenes Obst bildest du einfach aus beiden Händen
+    eine Schale. Alles was dort hinein passt entspricht einer Portion Obst. Für reinen Fruchtsaft und Smoothies bildet
+    ein Glas die Portionsgröße, genau wie bei den Getränken. 👩🏻‍🏫
+    \n \n
+    ℹ️ Weitere Informationen und Beispiel-Bilder findest du auf den Webseiten des BZfE."
+
+  utter_faq/ask_vegetables_portion_size:
+    - text: "Das hängt von der Größe des Gemüses ab: eine ganze Paprika zum Beispiel passt in eine Hand und ist somit
+    eine Portion. Klein geschnittenes Gemüse oder zum Beispiel Erbsen misst du indem du beide Hände zu einer Schale
+    zusammen nimmst: alles was dort hinein passt ist eine Portion. 👩🏻‍🏫
+    \n \n
+    ℹ️ Weitere Informationen und Beispiel-Bilder findest du auf den Webseiten des BZfE."
+
+  utter_faq/ask_carbohydrates_portion_size:
+    - text: "Hier müssen wir unterscheiden: eine Portion Brot entspricht deiner ganzen Handfläche mit ausgestreckten
+    Fingern. Die Scheibe Brot sollte dabei etwa einen Finger dick sein. Bei Beilagen wie Kartoffeln, Reis und Nudeln
+    sowie bei Müsli nimmst du beide Hände zusammen und bildest eine Schale. Beide Hände voll bilden eine Portion. 👩🏻‍🏫
+    \n \n
+    ℹ️ Weitere Informationen und Beispiel-Bilder findest du auf den Webseiten des BZfE."
+
+  utter_faq/ask_milk_produkts_portion_size:
+    - text: "Für Milch gilt das selbe wie bei Getränken: ein Glas Milch entspricht einer Portion. Bei Joghurt und Quark
+    kannst du dich auch an einem Glas orientieren: also ungefähr 300ml. Bei Käse ist es etwas schwieriger: eine Portion
+    Käse ist zum Beispiel eine Scheibe Gouda af deinem Brot, also etwa so groß wie deine Handfläche. 👩🏻‍🏫
+    \n \n
+    ℹ️ Weitere Informationen und Beispiel-Bilder findest du auf den Webseiten des BZfE."
+
+  utter_faq/ask_meat_portion_size:
+    - text: "Eine Portion Fleisch oder Fisch ist in etwa so groß wie dein Handteller, also deiner Handfläche ohne die
+    Finger. Das gleiche gilt auch für pflanzliche Alternative und Tofu. Bei Hülsenfrüchten nimmst du deinen beiden Hände
+    und bildest eine Schale: die Menge darin ist eine Portion Hülsenfrüchte. 👩🏻‍🏫
+    \n \n
+    ℹ️ Weitere Informationen und Beispiel-Bilder findest du auf den Webseiten des BZfE."
+
+  utter_faq/ask_oil_portion_size:
+    - text: "Öl wird in Esslöffeln gemessen: eine Portion entspricht dabei einem bis 2 Esslöffeln, je nach Alter. Beim
+    anbraten ist es oft schwierig genau zu sagen wie viel Öl an deinem Essen verblieben ist. Versuche dabei einfach zu
+    schätzen. 👩🏻‍🏫
+    \n \n
+    ℹ️ Weitere Informationen und Beispiel-Bilder findest du auf den Webseiten des BZfE."
+
+  utter_faq/ask_fat_portion_size:
+    - text: "Fett wird in Esslöffeln gemessen: eine Portion entspricht dabei einem bis 2 Esslöffeln, je nach Alter. Beim
+    anbraten ist es oft schwierig genau zu sagen wie viel Fett an deinem Essen verblieben ist. Versuche dabei einfach zu
+    schätzen. 👩🏻‍🏫
+    \n \n
+    ℹ️ Weitere Informationen und Beispiel-Bilder findest du auf den Webseiten des BZfE."
+
+  utter_faq/ask_extras_portion_size:
+    - text: "Da in diese Lebensmittelgruppe viele verschiedene Lebensmittel fallen ist da nicht einfach zu beantworten.
+    Eine Portion Süßigkeiten oder Knabbereien sollten in einer Hand Platz haben. Ein Schokoriegel oder eine Kugel Eis
+    entspricht auch einer Portion, ebenso wie ein Bier oder ein Glas Wein. 👩🏻‍🏫
+    \n \n
+    ℹ️ Weitere Informationen und Beispiel-Bilder findest du auf den Webseiten des BZfE."
+
+  # in the following section the answers for the FAQs regarding general information about RAINA are listed.
+  utter_faq/ask_abilities:
+    - text: "Ich besitze aktuell folgende Fähigkeiten: 👩🏻‍🏫
+    \n \n
+    ℹ️ Ich kann Portionen zu deiner Pyramide hinzufügen und abziehen.
+    \n \n
+    ℹ️ Ich kann dir deine Pyramide zeigen: für heute, einen spezifischen Tag und auch als Durchschnitt über einen
+    Zeitraum.
+    \n \n
+    ℹ️ Ich kann dir für eine bestimmte Lebensmittelgruppe sagen wie viele Portionen du heute schon eingetragen hast.
+    \n \n
+    ℹ️ Ich kann dir einfache Frage zu den Lebensmittelgruppen und Portionsgrößen beantworten.
+    \n \n
+    ℹ️ Ich kann dir täglich und wöchentliche Übersichten schicken."
+
+  utter_faq/ask_sources:
+    - text: "Alle Informationen bezüglich der Pyramide und der damit zusammenhängenden Ernährung basieren auf der
+    Website des Bundeszentrum für Ernährung (BZfE), sowie weiterführenden Links.
+    \n \n
+    ℹ️ Hier geht es zur Pyramide selbst:\n
+    https://www.bzfe.de/ernaehrung/die-ernaehrungspyramide/die-ernaehrungspyramide-eine-fuer-alle/
+    \n \n
+    ℹ️ Hier geht es zu den Lebensmittelgruppen:\n
+    https://www.bzfe.de/ernaehrung/die-ernaehrungspyramide/die-ernaehrungspyramide-eine-fuer-alle/ernaehrungspyramide-was-esse-ich/
+    \n \n
+    ℹ️ Hier geht es zu der Menge an Portionen:\n
+    https://www.bzfe.de/ernaehrung/die-ernaehrungspyramide/die-ernaehrungspyramide-eine-fuer-alle/ernaehrungspyramide-wie-viel-esse-ich/
+    \n \n
+    ℹ️ Hier geht es zu den Portionsgrößen:\n
+    https://www.bzfe.de/ernaehrung/die-ernaehrungspyramide/die-ernaehrungspyramide-eine-fuer-alle/ernaehrungspyramide-wie-gross-ist-eine-portion/"
+
+  utter_faq/ask_check_in_times:
+    - text: "Es gibt insgesamt 3 verschiedene Check-Ins: Jeden Tag um 8:00 Uhr morgens, jeden Tag um 17:00 Uhr abends
+    und jeden Sonntag um 20:00 Uhr abends. 👩🏻‍🏫
+    \n \n
+    ℹ️ Die Check-Ins sorgen dafür, dass du nicht vergisst auf deine Ernährung zu
+    achten und dass das bereits gelerntes reflektierst."
+
+  utter_faq/ask_how_to_add_portions:
+    - text: "Um eine Portion hinzuzufügen oder abzuziehen kannst du mir einfach etwas schreiben wie \"Ich habe gerade
+    eine Portion Obst gegessen\" oder \"Ziehe eine Portion Öl ab.\" 👩🏻‍🏫
+    \n \n
+    ℹ️ Bitte achte darauf, dass ich zwar einigen Synonyme für Lebensmittelgruppen gelernt habe, aber es sein kann dass
+    ich nicht verstehe welches Feld du meinst. Wenn du wissen willst Welche Bezeichnungen ich für die Lebensmittelgruppen
+    verwende, frag mich einfach!"
+
+  utter_faq/ask_how_to_see_pyramid:
+    - text: "ℹ️ Ich kann dir deine Pyramide für heute zeigen, dazu musst du nur schreiben:\n
+    \"Wie sieht meine Pyramide heute aus?\"
+    \n \n
+    ℹ️ Um deine Pyramide für einen bestimmten Tag zu sehen, nennen mir am besten ein Datum:\n
+    \"Wie sah meine Pyramide am 24.12.2021 aus?\"
+    \n \n
+    ℹ️ Um die Durchschnitts-Pyramide für einen Zeitraum zu schicken, brauche ich ein Start- und ein End-Datum:\n
+    \"Zeige mir meine durchschnittliche Pyramide von 15.10.2021 bis 15.02.2021\""
+
+  utter_faq/ask_field_names:
+    - text: "Die Lebensmittelgruppen, die durch die Felder der Pyramide dargestellt werden heißen wie folgt (von unten
+    nach oben): 👩🏻‍🏫
+    \n \n
+    🚰 Getränke\n
+    🍎 Obst\n
+    🥕 Gemüse\n
+    🌾 Kohlenhydrate (oder Beilagen)\n
+    🥛 Milchprodukte\n
+    🍗 Fleisch (oder Fisch)\n
+    🍶 Öl\n
+    🧈 Fett\n
+    🍬 Extras
+    \n \n
+    ℹ️ Bitte achte darauf, dass ich immer nur eine Lebensmittelgruppe pro Nachricht bearbeiten kann. Dafür kannst du
+    aber Zahlen mitgeben wie \"1,5 Portionen Obst\" oder \"3 Portionen Wasser\"."
+
+  utter_faq/ask_to_add_whole_dish:
+    - text: "Ich kann leider noch keine ganzen Gerichte in ihre Bestandteile aufteilen und die Pyramide dann entsprechend
+    auffüllen. Versuche deine Mahlzeit zu analysieren und überlege dir welche Lebensmittelgruppen zu wie großen Mengen in
+    deinem Essen enthalten sind. 👩🏻‍🏫
+    \n \n
+    ℹ️ Bitte achte darauf, dass ich immer nur eine Lebensmittelgruppe pro Nachricht bearbeiten kann. Dafür kannst du
+    aber Zahlen mitgeben wie \"1,5 Portionen Obst\" oder \"3 Portionen Wasser\"."
+
+  utter_faq/ask_how_to_change_portion:
+    - text: "Ich kann keine Portionen ändern. Wenn du etwas falsches eingetragen haben solltest, dann ist das nicht
+    schlimm: Ziehe einfach eine Portion der Lebensmittelgruppe ab und trage danach die neue Portion ein. 👩🏻‍🏫"
+
+  # used if the NLU confidence is low (threshold defined in config.yml)
+  utter_rephrase:
+    - text: "Tut mir leid, das habe ich nicht verstanden. 😕 Könntest du deine Nachricht bitte anders formulieren?"
+
+  # used if policies can not predict the next action with high confidence (threshold defined in config.yml)
+  utter_default:
+    - text: "Ich bin mir nicht sicher, was du von mir erwartest. Bitte vergewissere dich, dass ich diese Aufgabe schon
+    kann und formuliere sie gegebenenfalls noch einmal anders."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

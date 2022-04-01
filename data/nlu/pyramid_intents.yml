@@ -1,0 +1,48 @@
+# in this file the intents for requesting RAINA to show a single pyramid (specific day) or an average pyramid
+# (given time frame) are specified
+version: "2.0"
+
+nlu:
+
+  - intent: show_single_pyramid
+    examples: |
+      - zeige mir meine pyramide
+      - wie sieht meine pyramide aus
+      - wie viele Portionen habe ich eingetragen?
+      - was steht in meiner Pyramide?
+      - wie sieht meine pyramide für heute aus?
+      - was habe ich heute gegessen?
+      - was habe ich heute schon eingetragen?
+      - was steht bisher in meiner pyramide?
+      - wie sieht meine pyramide heute aus?
+      - wie war meine Ernährung vor einer Woche?
+      - was habe ich gestern gegessen?
+      - was habe ich vor 3 Tagen gegessen?
+      - wie sieht meine pyramid für den 01.01.2021 aus?
+      - was war meine pyramide am 24.12.2021
+      - wie sieht meiner pyramide von letzter Woche aus?
+      - Pyramide bitte
+      - wie sieht meine Pyramide bisher aus?
+      - wie sieht meine Pyramide bis jetzt aus?
+      - Dreieckiges Gebilde von heute anzeigen
+      - was kann ich heute noch essen?
+      - was habe ich heute noch frei?
+      - welche Felder sind heute noch frei?
+      - Schicke mir meine Pyramide
+      - schicke mir meine pyramide für heute
+      - wie sieht die pyramide jetzt aus?
+
+  - intent: show_average_pyramid
+    examples: |
+      - wie sieht meine durchschnittliche Pyramide der letzten 7 Tage aus?
+      - wie sieht meine durchschnittliche Pyramide aus?
+      - wie sieht meine Pyramide von letzter Woche bis jetzt aus?
+      - zeige mir meine durchschnittliche Pyramide für die letzten 30 Tage.
+      - zeige mir meine Pyramide von 01.01.2021 bis 13.10.2021
+      - was habe ich in den letzten zehn Tagen gegessen?
+      - wie war meine Ernährung die letzten 14 Tage
+      - Zeige mir einen Überblick über meine Ernährung der letzten 30 Tage
+      - Gib mir eine Zusammenfassung der letzten 2 Wochen
+      - Gib mir eine Zusammenfassung der letzten 21 Tage
+      - schicke mir meine Pyramide von 01.01.2021 bis 13.10.2021
+      - berechne mir meine Pyramide von 01.01.2021 bis 13.10.2021

@@ -1,0 +1,15 @@
+version: "2.0"
+
+rules:
+
+  - rule: Show the users single pyramid anytime the user asks for it
+    steps:
+      - intent: show_single_pyramid
+      - action: action_show_single_pyramid
+    wait_for_user_input: false
+
+  - rule: Show the users average pyramid anytime the user asks for it
+    steps:
+      - intent: show_average_pyramid
+      - action: action_show_average_pyramid
+    wait_for_user_input: false

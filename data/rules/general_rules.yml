@@ -1,0 +1,50 @@
+version: "2.0"
+
+rules:
+
+  - rule: Say goodbye anytime the user says goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Thank the user for their thank and motivate them
+    steps:
+      - intent: thank
+      - action: utter_thank
+
+  - rule: Say 'I am a bot' anytime the user challenges
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
+
+  - rule: Ask user to rephrase whenever the message causes low NLU confidence
+    steps:
+      - intent: nlu_fallback
+      - action: utter_rephrase
+
+  # rule to test the connection
+  - rule: repsond pong to every user if he pings you
+    steps:
+      - intent: ping
+      - action: utter_pong
+
+  # the rules below are being used to handle system commands a user might send to the bot to shut it down
+  - rule: Reply with default message whenever a user tries to use the "/stop" command
+    steps:
+      - intent: stop
+      - action: utter_default
+
+  - rule: Reply with default message whenever a user tries to use the "/shutdown" command
+    steps:
+      - intent: shutdown
+      - action: utter_default
+
+  - rule: Reply with default message whenever a user tries to use the "/end" command
+    steps:
+      - intent: end
+      - action: utter_default
+
+  - rule: Reply with default message whenever a user tries to use the "/exit" command
+    steps:
+      - intent: exit
+      - action: utter_default

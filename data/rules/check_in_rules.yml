@@ -1,0 +1,99 @@
+# In this file the rules for starting the different checkins are being defined. The message_scheduler sends the specific
+# intent via the telegram API which should result in starting the checkin immediately.
+
+version: "2.0"
+
+rules:
+  # in the morning check-in no custom action is needed since it is only a check-in question
+  - rule: Send morning check-in anytime the external intent triggeres it
+    steps:
+      - intent: EXTERNAL_send_morning_check_in
+      - action: utter_morning_check_in_question
+
+  - rule: Send daily check-in anytime the external intent triggeres it
+    steps:
+      - intent: EXTERNAL_send_evening_check_in
+      - action: action_evening_check_in
+      - action: utter_evening_check_in_question
+
+  - rule: Send weekly check-in anytime the external intent triggeres it
+    steps:
+      - intent: EXTERNAL_send_weekly_check_in
+      - action: action_weekly_check_in
+      - action: utter_weekly_check_in_question
+
+  # call the custom action to save the answer whenever an answer is received
+  - rule: Save morning answer 1
+    steps:
+      - intent: BUTTON_morning_check_in_1
+      - action: action_save_check_in
+
+  - rule: Save morning answer 2
+    steps:
+      - intent: BUTTON_morning_check_in_2
+      - action: action_save_check_in
+
+  - rule: Save morning answer 3
+    steps:
+      - intent: BUTTON_morning_check_in_3
+      - action: action_save_check_in
+
+  - rule: Save morning answer 4
+    steps:
+      - intent: BUTTON_morning_check_in_4
+      - action: action_save_check_in
+
+  - rule: Save morning answer 5
+    steps:
+      - intent: BUTTON_morning_check_in_5
+      - action: action_save_check_in
+
+  - rule: Save evening answer 1
+    steps:
+      - intent: BUTTON_evening_check_in_1
+      - action: action_save_check_in
+
+  - rule: Save evening answer 2
+    steps:
+      - intent: BUTTON_evening_check_in_2
+      - action: action_save_check_in
+
+  - rule: Save evening answer 3
+    steps:
+      - intent: BUTTON_evening_check_in_3
+      - action: action_save_check_in
+
+  - rule: Save evening answer 4
+    steps:
+      - intent: BUTTON_evening_check_in_4
+      - action: action_save_check_in
+
+  - rule: Save evening answer 5
+    steps:
+      - intent: BUTTON_evening_check_in_5
+      - action: action_save_check_in
+
+  - rule: Save weekly answer 1
+    steps:
+      - intent: BUTTON_weekly_check_in_1
+      - action: action_save_check_in
+
+  - rule: Save weekly answer 2
+    steps:
+      - intent: BUTTON_weekly_check_in_2
+      - action: action_save_check_in
+
+  - rule: Save weekly answer 3
+    steps:
+      - intent: BUTTON_weekly_check_in_3
+      - action: action_save_check_in
+
+  - rule: Save weekly answer 4
+    steps:
+      - intent: BUTTON_weekly_check_in_4
+      - action: action_save_check_in
+
+  - rule: Save weekly answer 5
+    steps:
+      - intent: BUTTON_weekly_check_in_5
+      - action: action_save_check_in

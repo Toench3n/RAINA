@@ -1,0 +1,15 @@
+# https://rasa.com/docs/rasa/2.x/forms
+version: "2.0"
+
+rules:
+
+  - rule: Send the initial text/disclaimer to the user and initialize the conversation when the user starts a conversation
+    steps:
+      - intent: start
+      - action: utter_tell_activated
+    wait_for_user_input: false
+
+  - rule: Add the user to the database after you told them they are ready to go
+    steps:
+      - action: utter_tell_ready_to_go
+      - action: action_add_user
